@@ -1,0 +1,14 @@
+Status Update Dec 11,2008 (Morteza)
+ I have updated the GameManager.cs, added the following lines 
+     int i = 10; // Holds the initial Position of our text (Morteza)
+     //Create a 'stat. for each bot on the screen
+     // We display the team, name and the score and the weapon and number of ammo and other properties
+     foreach (BotEntity bot in _botList)
+       {
+        TextUtil.DrawText(5, _map.SizeY + i,
+             "("+bot.Team.ToString()+") "+ bot.Name + " SCORE: " + bot.Score.ToString() + "  HEALTH: " + bot.Health.ToString() + " WEAPON: " + bot.WeaponSystem.CurrentWeapon.WeaponType.ToString() + " AMMO: " + bot.WeaponSystem.CurrentWeapon.NumRoundsLeft.ToString() + "/" + _botList[1].WeaponSystem.CurrentWeapon.MaxRoundsCarried.ToString() + " HEADING: " + bot.Heading.ToString());
+        i += 10;
+      
+   	}
+
+  This displays the bots properties at the bottom of the screen.

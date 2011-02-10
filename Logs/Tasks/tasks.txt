@@ -1,0 +1,63 @@
+improve graphics
+improve string pulling (use with the environments)
+spawn weapons in different locations
+hit switches instead of attempting
+change the satisfaction radii
+give higher priority to switch than wall
+avoid hugging (add melee attack e.g. punching/ chainsaw/ etc)
+adjust window position
+X - use multithreading to make faster
+change priority of rail gun (recheck all other priorities)
+random map generator (connected rooms)
+distinct AI behaviours for bots
+add controllable player
+sound support
+individual scores per person (frags/deaths/score) /status panel (health)
+cool load screen
+cloud/fog of war
+game modes (capture the flag, deathmatch, etc.)
+possibly change search space representation
+--> no wall hugging <--
+
+
+Key Components:
+playability(fog of war) {Colin}
+	? implement long term memory (short term exists)
+	--DONE
+	? not necessarily seeking closest item available
+	--Seeks closest discovered item, stumbles upon additional ones
+
+playability(AI behaviours: goal editing) {Morteza, Dan}
+	? utilize bot senses to influence behaviours (hearing, vision, memory)
+	? modify the ammo/health/etc. capacity so the bots don't go for the same thing repetitively
+	? make changes to the desirability function based on amount of ammo held
+playability(AI behaviours: group behav. & map building) {Johnny, Jason}
+	? team based assistance in team versus mode (group attack formations, group rescue, etc.)
+playability(AI behaviours: messaging & quick path) {Rich, Tom}
+documentation {everyone update logs, vital for Goodwin to locate code changed}
+
+Secondary Importance (1 day or less preferred)
+statistics {Morteza}
+	? menu system
+graphics(pics/textures/load screen) {Rich}
+sound {Tom, Dan}
+playability(AI behaviours: capture the flag - separate map? get map builder prg)
+
+Deprecated:
+Player Control
+playability(environmental behaviours)
+
+Exam Schedule (Exam Days in December)
+W2: Morteza: 15, 18, 22
+W1: Jason: 16, 19, 21
+E:  Colin: 18, 19, 21, 22
+W2: Tom: 17, 22
+L:  Rich: 15
+W2: Dan: 16?, 18, 22
+W1: Johnny: 16, 20, 21
+
+Legend:
+W1: most work done during weekend #1 (12-14)
+W2: most work done during weekend #2 (19-21)
+E:  most work done early (10-15)
+L:  most work done late (16-19/20/21)

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:GameAI="Mindcrafters.Tx2D.GameAI">
+  <Asset Type="GameAI:OptionsData">
+    <ShowGraph>true</ShowGraph>
+    <ShowNodeIndices>false</ShowNodeIndices>
+    <ShowPathOfSelectedBot>true</ShowPathOfSelectedBot>
+    <ShowTargetOfSelectedBot>false</ShowTargetOfSelectedBot>
+    <ShowOpponentsSensedBySelectedBot>false</ShowOpponentsSensedBySelectedBot>
+    <OnlyShowBotsInTargetsFOV>false</OnlyShowBotsInTargetsFOV>
+    <ShowGoalsOfSelectedBot>true</ShowGoalsOfSelectedBot>
+    <ShowGoalAppraisals>true</ShowGoalAppraisals>
+    <ShowWeaponAppraisals>false</ShowWeaponAppraisals>
+    <SmoothPathsQuick>false</SmoothPathsQuick>
+    <SmoothPathsPrecise>false</SmoothPathsPrecise>
+    <ShowBotIds>false</ShowBotIds>
+    <ShowBotHealth>true</ShowBotHealth>
+    <ShowScore>false</ShowScore>
+  </Asset>
+</XnaContent>

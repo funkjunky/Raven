@@ -1,0 +1,30 @@
+I added flags to the game, I set up the triggering system as well so bots can pick up the flag.  The goal mechanism is not in place yet, so they just stumble onto them as they feel like it.
+We need to set up a flag goal that is
+-find the flag
+-get it
+-carry it back to your flag area without dying
+
+I also think we should have a message sent to everyone when a flag is captured so we can kinda gang up on the guy who stole our flag.  Not sure how this would work just yet...
+
+-ct
+-----------------------------------------------------
+
+any opinions on calculating the desirability of trying to capture the other team's flag? tell me if you have a better idea
+
+i was thinking something like this.
+-say a team has 4 players, the first on really wants the flag, the second one a little less, third a little less, fourth maybe not at all.  this would give us a kinda forward, center, defence type heirarchy, since the one who doesn't desire to get their flag would hang back, get weapons and kill guys etc...
+
+any thoughts?
+
+-ct
+-----------------------------------------------------
+Added rank to bot entities to use for each team, each team member can do tasks according to rank.  
+For instance, the higher the rank the more likely a bot will be to try to get the flag, 
+this also helps so prevent all bots from being retarded and all trying to get the flag.
+
+-ct
+-----------------------------------------------------
+
+It seems bots often get stuck when trying to capture the flag. They will stay in one spot spinning around.
+Also I have yet to see a flag captured. They grab the flag, but they always just wander around after and eventually die.
+-Jason

@@ -1,0 +1,88 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{53B0C926-7755-4495-AD49-4019A8C0544A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mindcrafters.Library.Components</RootNamespace>
+    <AssemblyName>Mindcrafters.Library.Components</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=2.0.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d, processorArchitecture=MSIL" />
+    <Reference Include="Mindcrafters.TorqueX.Framework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c1c35eb5489f3e33, processorArchitecture=x86" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Components\Animation\BotAnimationComponent.cs" />
+    <Compile Include="Components\Animation\BotAnimationStates\BotBackState.cs" />
+    <Compile Include="Components\Animation\BotAnimationStates\BotForwardState.cs" />
+    <Compile Include="Components\Animation\BotAnimationStates\BotIdleState.cs" />
+    <Compile Include="Components\Animation\BotAnimationStates\BotLeftState.cs" />
+    <Compile Include="Components\Animation\BotAnimationStates\BotRightState.cs" />
+    <Compile Include="Components\Animation\BotAnimationStates\BotTurnLeftState.cs" />
+    <Compile Include="Components\Animation\BotAnimationStates\BotTurnRightState.cs" />
+    <Compile Include="Components\Audio\EngineAudioComponent.cs" />
+    <Compile Include="Components\Camera\CameraComponent.cs" />
+    <Compile Include="Components\Collision\MicrobeCollisionComponent.cs" />
+    <Compile Include="Components\Collision\TankCollisionComponent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Components\Effects\GamepadVibrationComponent.cs" />
+    <Compile Include="Components\Effects\ShadowComponent.cs" />
+    <Compile Include="Components\HUD\CompassComponent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Components\HUD\MinimapComponent.cs" />
+    <Compile Include="Components\Movement\AttractorComponent.cs" />
+    <Compile Include="Components\Movement\BotMovementComponent.cs" />
+    <Compile Include="Components\Movement\MicrobeMovementComponent.cs" />
+    <Compile Include="Components\Movement\MovementComponent.cs" />
+    <Compile Include="Components\Movement\RepellerComponent.cs" />
+    <Compile Include="Components\Movement\TankMovementComponent.cs" />
+    <Compile Include="Components\PlayerInput\PlayerInputComponent.cs" />
+    <Compile Include="Components\PopulationControl\BoundsCheckerComponent.cs" />
+    <Compile Include="Components\PopulationControl\LifeSpanComponent.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mindcrafters.Library.Math\Mindcrafters.Library.Math.csproj">
+      <Project>{BC810B35-13E4-4C5F-84B0-0EE9EDE8A8FF}</Project>
+      <Name>Mindcrafters.Library.Math</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Components\WeaponSystems\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

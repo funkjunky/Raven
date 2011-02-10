@@ -1,0 +1,85 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B542116B-AE58-4643-8A34-2251B82DE3AC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MapContent</RootNamespace>
+    <AssemblyName>MapContent</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline, Version=2.0.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d, processorArchitecture=x86" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EnumUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FlagData.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="DoorData.cs" />
+    <Compile Include="DoorReader.cs" />
+    <Compile Include="DoorTriggerData.cs" />
+    <Compile Include="DoorTriggerReader.cs" />
+    <Compile Include="EdgeData.cs" />
+    <Compile Include="EdgeReader.cs" />
+    <Compile Include="HealthData.cs" />
+    <Compile Include="HealthReader.cs" />
+    <Compile Include="MapData.cs" />
+    <Compile Include="MapReader.cs" />
+    <Compile Include="NodeData.cs" />
+    <Compile Include="NodeReader.cs" />
+    <Compile Include="OptionsData.cs" />
+    <Compile Include="OptionsReader.cs" />
+    <Compile Include="ParameterData.cs" />
+    <Compile Include="ParameterReader.cs" />
+    <Compile Include="RailgunData.cs" />
+    <Compile Include="RailgunReader.cs" />
+    <Compile Include="RocketLauncherData.cs" />
+    <Compile Include="RocketLauncherReader.cs" />
+    <Compile Include="ShotgunData.cs" />
+    <Compile Include="ShotgunReader.cs" />
+    <Compile Include="SpawnPointData.cs" />
+    <Compile Include="SpawnPointReader.cs" />
+    <Compile Include="WallData.cs" />
+    <Compile Include="WallReader.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mindcrafters.Library.Utility\Mindcrafters.Library.Utility.csproj">
+      <Project>{AE0C9FFF-A139-4F52-9481-34FF8C20AE1F}</Project>
+      <Name>Mindcrafters.Library.Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

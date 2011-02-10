@@ -1,0 +1,483 @@
+#region File description
+
+//------------------------------------------------------------------------------
+//Think.cs
+//
+//Copyright (C) Scott D. Goodwin <Mindcrafters.ca> All rights reserved.
+//------------------------------------------------------------------------------
+
+#endregion
+
+#region Namespace imports
+
+#region System
+
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using GarageGames.Torque.Core;
+using GarageGames.Torque.Util;
+using MapContent;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Mindcrafters.Library.Utility;
+using Mindcrafters.RavenX.Entity.Bot;
+using Mindcrafters.RavenX.Goal.Evaluator;
+using Mindcrafters.Tx2D.GameAI;
+
+    #endregion
+
+    #region Microsoft
+
+    #endregion
+
+    #region GarageGames
+
+    #endregion
+
+    #region Mindcrafters
+
+#endregion
+
+#endregion
+
+namespace Mindcrafters.RavenX.Goal.Composite
+{
+    ///<summary>
+    ///class to arbitrate between a collection of high level goals, and
+    ///to process those goals.
+    ///</summary>
+    public class Think : CompositeGoal
+    {
+        #region Static methods, fields, constructors
+
+        private static readonly string _logAddGoalText =
+            String.Format("{0,-23}] ", "AddGoal");
+
+        private static readonly string _logArbitrateText =
+            String.Format("{0,-23}] ", "Arbitrate");
+
+        private static readonly string _logQueueGoalText =
+            String.Format("{0,-23}] ", "QueueGoal");
+
+        ///<summary>
+        ///log text for AddGoal* method(s)
+        ///</summary>
+        protected static string LogAddGoalText
+        {
+            get { return _logAddGoalText; }
+        }
+
+        ///<summary>
+        ///log text for Arbitrate method
+        ///</summary>
+        protected static string LogArbitrateText
+        {
+            get { return _logArbitrateText; }
+        }
+
+        ///<summary>
+        ///log text for QueueGoal* method(s)
+        ///</summary>
+        protected static string LogQueueGoalText
+        {
+            get { return _logQueueGoalText; }
+        }
+
+        #endregion
+
+        #region Constructors
+
+        ///<summary>
+        ///Constructor for Think composite goal. Loads 'brain' with default
+        ///evaluators and random biases
+        ///</summary>
+        ///<param name="bot">Bot that owns this goal</param>
+        public Think(BotEntity bot)
+            : this(bot, false)
+        {
+        }
+
+        ///<summary>
+        ///Constructor for Think composite goal. If <paramref name="emptyBrain"/>
+        ///is false, loads 'brain' with default evaluators and random biases.
+        ///Otherwise, caller must manually add evaluators and biases.
+        ///</summary>
+        ///<param name="bot">Bot that owns this goal</param>
+        ///<param name="emptyBrain">if false, don't add evaluators</param>
+        public Think(BotEntity bot, bool emptyBrain)
+            : base(bot, GoalTypes.Think)
+        {
+            if (emptyBrain)
+                return;
+
+            //these biases could be loaded in from a script on a per bot basis
+            //but for now we'll just give them some random values
+            const float lowRangeOfBias = 0.5f;
+            const float highRangeOfBias = 1.5f;
+
+            float healthBias =
+                TorqueUtil.GetRandomFloat(lowRangeOfBias, highRangeOfBias);
+            float exploreBias =
+                TorqueUtil.GetRandomFloat(lowRangeOfBias, highRangeOfBias);
+            float attackBias =
+                TorqueUtil.GetRandomFloat(lowRangeOfBias, highRangeOfBias);
+            //float evadeBias = 
+            //    TorqueUtil.GetRandomFloat(lowRangeOfBias, highRangeOfBias);
+            float shotgunBias =
+                TorqueUtil.GetRandomFloat(lowRangeOfBias, highRangeOfBias);
+            float rocketLauncherBias =
+                TorqueUtil.GetRandomFloat(lowRangeOfBias, highRangeOfBias);
+            float railgunBias =
+                TorqueUtil.GetRandomFloat(lowRangeOfBias, highRangeOfBias);
+
+            //create the evaluator objects
+            _evaluators.Add(new EvaluatorGetHealth(healthBias));
+            _evaluators.Add(new EvaluatorExplore(exploreBias));
+            _evaluators.Add(new EvaluatorAttackTarget(attackBias));
+            //_evaluators.Add(new EvaluatorEvadeBot(evadeBias));
+            _evaluators.Add(new EvaluatorGetWeapon(shotgunBias,
+                                                   WeaponTypes.Shotgun));
+            _evaluators.Add(new EvaluatorGetWeapon(railgunBias,
+                                                   WeaponTypes.Railgun));
+            _evaluators.Add(new EvaluatorGetWeapon(rocketLauncherBias,
+                                                   WeaponTypes.RocketLauncher));
+        }
+
+        #endregion
+
+        #region Public methods
+
+        ///<summary>
+        ///logic to run when the goal is activated. If bot is not controlled by
+        ///the player, call Arbitrate to select the most desirable goal.
+        ///</summary>
+        public override void Activate()
+        {
+            LogUtil.WriteLineIfLogThink(
+                LogPrefixText + LogActivateText + LogStatusText +
+                " Before Arbitrate");
+
+            if (!Bot.IsPossessed)
+            {
+                Arbitrate();
+            }
+
+            Status = StatusTypes.Active;
+
+            LogUtil.WriteLineIfLogThink(
+                LogPrefixText + LogActivateText + LogStatusText +
+                " After Arbitrate");
+        }
+
+        ///<summary>
+        ///logic to run each update-step.
+        ///</summary>
+        ///<returns></returns>
+        public override StatusTypes Process()
+        {
+            LogUtil.WriteLineIfLogThink(
+                LogPrefixText + LogProcessText + LogStatusText +
+                " ActivateIfInactive");
+
+            ActivateIfInactive();
+
+            LogUtil.WriteLineIfLogThink(
+                LogPrefixText + LogProcessText + LogStatusText +
+                " Before processing" + SubgoalsToString());
+
+            StatusTypes subgoalStatus = ProcessSubgoals();
+
+            if ((subgoalStatus == StatusTypes.Completed ||
+                 subgoalStatus == StatusTypes.Failed) &&
+                !Bot.IsPossessed)
+            {
+                Status = StatusTypes.Inactive;
+            }
+
+            LogUtil.WriteLineIfLogThink(
+                LogPrefixText + LogProcessText + LogStatusText +
+                " After processing" + SubgoalsToString());
+
+            return Status;
+        }
+
+        ///<summary>
+        ///logic to run prior to the goal's destruction
+        ///</summary>
+        public override void Terminate()
+        {
+            LogUtil.WriteLineIfLogThink(LogPrefixText + LogTerminateText);
+        }
+
+
+        ///<summary>
+        ///this method iterates through each goal evaluator and selects the one
+        ///that has the highest score as the current goal
+        ///</summary>
+        public void Arbitrate()
+        {
+            //for debugging
+            _prevBestDesirability = _bestDesirability;
+            _prevMostDesirable = _mostDesirable;
+
+            LogUtil.WriteLineIfLogThink(LogPrefixText + LogArbitrateText +
+                                        LogStatusText +
+                                        " PrevDesirability = " +
+                                        _prevBestDesirability.ToString(("F2")) +
+                                        " PrevDesirable = " +
+                                        (_prevMostDesirable == null
+                                             ?
+                                                 "none"
+                                             : _prevMostDesirable.GetType().Name));
+
+            _bestDesirability = 0.0f;
+            _mostDesirable = null;
+
+            //iterate through all the evaluators to find the highest scoring one
+            foreach (Evaluator.Evaluator ev in _evaluators)
+            {
+                float desirabilty = ev.CalculateDesirability(Bot);
+
+                if (desirabilty < _bestDesirability)
+                    continue;
+
+                _bestDesirability = desirabilty;
+                _mostDesirable = ev;
+            }
+
+            Assert.Fatal(_mostDesirable != null,
+                         "Think.Arbitrate: no evaluator selected");
+
+            LogUtil.WriteLineIfLogThink(LogPrefixText + LogArbitrateText +
+                                        LogStatusText +
+                                        " Desirability = " +
+                                        _bestDesirability.ToString(("F2")) +
+                                        " Desirable = " +
+                                        (_mostDesirable == null
+                                             ?
+                                                 "none"
+                                             : _mostDesirable.GetType().Name));
+
+            if (_mostDesirable != null)
+            {
+                _mostDesirable.SetGoal(Bot);
+            }
+        }
+
+
+        ///<summary>
+        ///returns true if the given goal is not the front subgoal
+        ///</summary>
+        ///<param name="goalType"></param>
+        ///<returns></returns>
+        public bool NotPresent(GoalTypes goalType)
+        {
+            return Subgoals.Count <= 0 || Subgoals.Peek().GoalType != goalType;
+        }
+
+        ///<summary>
+        ///Add composite goal <see cref="Explore"/>
+        ///</summary>
+        public void AddGoalExplore()
+        {
+            if (!NotPresent(GoalTypes.Explore))
+                return;
+
+            LogUtil.WriteLineIfLogThink(LogPrefixText + LogAddGoalText +
+                                        LogStatusText +
+                                        " Explore");
+
+            RemoveAllSubgoals();
+            AddSubgoal(new Explore(Bot));
+        }
+
+        ///<summary>
+        ///Add composite goal <see cref="MoveToPosition"/>
+        ///</summary>
+        ///<param name="destination">destination</param>
+        public void AddGoalMoveToPosition(Vector2 destination)
+        {
+            LogUtil.WriteLineIfLogThink(LogPrefixText + LogAddGoalText +
+                                        LogStatusText +
+                                        " MoveToPosition: " + destination);
+
+            AddSubgoal(new MoveToPosition(Bot, destination));
+        }
+
+        ///<summary>
+        ///Add composite goal <see cref="GetItem"/>
+        ///</summary>
+        ///<param name="itemType"></param>
+        public void AddGoalGetItem(ItemTypes itemType)
+        {
+            if (!NotPresent(ItemTypeToGoalType(itemType)))
+                return;
+
+            LogUtil.WriteLineIfLogThink(LogPrefixText + LogAddGoalText +
+                                        LogStatusText +
+                                        " GetItem: " + itemType);
+
+            RemoveAllSubgoals();
+            AddSubgoal(new GetItem(Bot, itemType));
+        }
+
+        ///<summary>
+        ///Add composite goal <see cref="AttackTarget"/>
+        ///</summary>
+        public void AddGoalAttackTarget()
+        {
+            if (!NotPresent(GoalTypes.AttackTarget))
+                return;
+
+            LogUtil.WriteLineIfLogThink(LogPrefixText + LogAddGoalText +
+                                        LogStatusText +
+                                        " AttackTarget");
+
+            RemoveAllSubgoals();
+            AddSubgoal(new AttackTarget(Bot));
+        }
+
+        ///<summary>
+        ///Add composite goal <see cref="FollowFormation"/>
+        ///</summary>
+        public void AddGoalFollowFormation(Formation groupFormation)
+        {
+            if (!NotPresent(GoalTypes.FollowFormation))
+                return;
+
+            LogUtil.WriteLineIfLogThink(LogPrefixText + LogAddGoalText +
+                LogStatusText +
+                " Follow Formation");
+
+            this._evaluators.Find(delegate(Evaluator ev) { return typeof(ev) == EvaluatorFollowFormation; });
+
+            RemoveAllSubgoals();
+            AddSubgoal(new FollowFormation(Bot, groupFormation));
+        }
+
+        ///<summary>
+        ///this adds the <see cref="MoveToPosition"/> goal to the *back* of the
+        ///subgoal list.
+        ///</summary>
+        ///<param name="destination">destination</param>
+        public void QueueGoalMoveToPosition(Vector2 destination)
+        {
+            LogUtil.WriteLineIfLogThink(LogPrefixText + LogQueueGoalText +
+                                        LogStatusText +
+                                        " MoveToPosition: " + destination);
+
+            Subgoals.Push(new MoveToPosition(Bot, destination));
+        }
+
+        ///<summary>
+        ///render the subgoals of <see cref="Think"/>
+        ///</summary>
+        public override void Render()
+        {
+            base.Render();
+
+            foreach (Goal curGoal in Subgoals)
+            {
+                curGoal.Render();
+            }
+        }
+
+        ///<summary>
+        ///Used to render debugging info if DEBUG is defined.
+        ///</summary>
+        public override void DebugRender()
+        {
+            DebugRenderIfThink();
+        }
+
+        ///<summary>
+        ///Used to render debugging info if DEBUG and DEBUG_THINK is defined.
+        ///</summary>
+        [Conditional("DEBUG_THINK")]
+        public void DebugRenderIfThink()
+        {
+            int offsetX = 5;
+
+            TextUtil.DrawText(
+                offsetX,
+                GameManager.GameManager.Instance.Map.SizeY - 45,
+                Color.Green,
+                "Think->");
+
+            offsetX += 75;
+
+            TextUtil.DrawText(
+                offsetX,
+                GameManager.GameManager.Instance.Map.SizeY - 45,
+                Color.Green,
+                "Desirability: " + _bestDesirability.ToString(("F2")));
+
+            offsetX += 150;
+
+            TextUtil.DrawText(
+                offsetX,
+                GameManager.GameManager.Instance.Map.SizeY - 45,
+                Color.Red,
+                "PrevDesirability: " + _prevBestDesirability.ToString(("F2")));
+
+            offsetX += 225;
+
+            if (_mostDesirable != null)
+            {
+                TextUtil.DrawText(
+                    offsetX,
+                    GameManager.GameManager.Instance.Map.SizeY - 45,
+                    Color.Green,
+                    "Desirable: " + _mostDesirable.GetType().Name);
+            }
+
+            offsetX += 225;
+
+            if (_prevMostDesirable != null)
+            {
+                TextUtil.DrawText(
+                    offsetX,
+                    GameManager.GameManager.Instance.Map.SizeY - 45,
+                    Color.Red,
+                    "PrevDesirable: " + _prevMostDesirable.GetType().Name);
+            }
+        }
+
+        ///<summary>
+        ///Draw evaluation info
+        ///</summary>
+        ///<param name="left"></param>
+        ///<param name="top"></param>
+        public void RenderEvaluations(int left, int top)
+        {
+            foreach (Evaluator.Evaluator curEvaluator in _evaluators)
+            {
+                curEvaluator.RenderInfo(new Vector2(left, top), Bot);
+
+                left += 75;
+            }
+        }
+
+        #endregion
+
+        #region Private, protected, internal methods
+
+        #endregion
+
+        #region Private, protected, internal fields
+
+        private readonly List<Evaluator.Evaluator> _evaluators = new List<Evaluator.Evaluator>();
+
+        //for debugging, we'll make these member fields
+        //instead of local variables
+
+        private float _bestDesirability;
+        private Evaluator.Evaluator _mostDesirable;
+
+        private float _prevBestDesirability;
+        private Evaluator.Evaluator _prevMostDesirable;
+
+        #endregion
+    }
+}

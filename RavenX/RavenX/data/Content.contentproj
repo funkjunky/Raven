@@ -1,0 +1,977 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{96E2B04D-8817-42c6-938A-82C39BA4D311};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{D37D1351-1A51-4869-A2FB-99F2007D1046}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StarterGame2D</RootNamespace>
+    <AssemblyName>StarterGame2D</AssemblyName>
+    <XnaFrameworkVersion>v2.0</XnaFrameworkVersion>
+    <ApplicationIcon>StarterGame2D.ico</ApplicationIcon>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <StartupObject>StarterGame2D.Game</StartupObject>
+    <ContentRootDirectory>data</ContentRootDirectory>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.EffectImporter, Version=2.0.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.FBXImporter, Version=2.0.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.TextureImporter, Version=2.0.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.XImporter, Version=2.0.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="shapes\weapons\grenade\grenade_dif.png">
+      <Name>grenade_dif</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\weapons\grenade\grenade_glow.png">
+      <Name>grenade_glow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\weapons\grenade\grenade_spc.png">
+      <Name>grenade_spc</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\weapons\grenade\gun.png">
+      <Name>gun</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\weapons\grenade\gunammo.png">
+      <Name>gunammo</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\weapons\grenade\gunammo_bump.png">
+      <Name>gunammo_bump</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\weapons\grenade\gunGlow.png">
+      <Name>gunGlow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\weapons\grenade\gun_bump.png">
+      <Name>gun_bump</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\weapons\rifle\prifle.png">
+      <Name>prifle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\weapons\rifle\prifle_bump.png">
+      <Name>prifle_bump</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\weapons\rifle\prifle_glow.png">
+      <Name>prifle_glow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\weapons\rifle\tracer.png">
+      <Name>tracer</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="images\GarageGames\scoreBottomLeft.png">
+      <Name>scoreBottomLeft</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\scoreBottomRight.png">
+      <Name>scoreBottomRight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\scoreTopLeft.png">
+      <Name>scoreTopLeft</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\scoreTopRight.png">
+      <Name>scoreTopRight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\volume0.png">
+      <Name>volume0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\volume0_h.png">
+      <Name>volume0_h</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\volume1.png">
+      <Name>volume1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\volume10.png">
+      <Name>volume10</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\volume10_h.png">
+      <Name>volume10_h</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\volume1_h.png">
+      <Name>volume1_h</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\volume2.png">
+      <Name>volume2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\volume2_h.png">
+      <Name>volume2_h</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\volume3.png">
+      <Name>volume3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\volume3_h.png">
+      <Name>volume3_h</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\volume4.png">
+      <Name>volume4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\volume4_h.png">
+      <Name>volume4_h</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\volume5.png">
+      <Name>volume5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\volume5_h.png">
+      <Name>volume5_h</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\volume6.png">
+      <Name>volume6</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\volume6_h.png">
+      <Name>volume6_h</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\volume7.png">
+      <Name>volume7</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\volume7_h.png">
+      <Name>volume7_h</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\volume8.png">
+      <Name>volume8</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\volume8_h.png">
+      <Name>volume8_h</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\volume9.png">
+      <Name>volume9</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\volume9_h.png">
+      <Name>volume9_h</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GUI\testPattern_1024x768.png">
+      <Name>testPattern_1024x768</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\Mindcrafters\YellowBall.png">
+      <Name>YellowBall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="images\GarageGames\barrierhorizontal.png">
+      <Name>barrierhorizontal</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\BarrierOOBBottom.png">
+      <Name>BarrierOOBBottom</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\BarrierOOBLeft.png">
+      <Name>BarrierOOBLeft</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\BarrierOOBRight.png">
+      <Name>BarrierOOBRight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\BarrierOOBTop.png">
+      <Name>BarrierOOBTop</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\barriersmallhorizontal.png">
+      <Name>barriersmallhorizontal</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\barriersmallvertical.png">
+      <Name>barriersmallvertical</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\barriervertical.png">
+      <Name>barriervertical</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\battleground.png">
+      <Name>battleground</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\glow.png">
+      <Name>glow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\quit.png">
+      <Name>quit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\quit_h.png">
+      <Name>quit_h</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\Mindcrafters\BlueBall.png">
+      <Name>BlueBall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\Mindcrafters\GreenBall.png">
+      <Name>GreenBall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\Mindcrafters\MindcraftersLogo.jpg">
+      <Name>MindcraftersLogo</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\Mindcrafters\OrangeBall.png">
+      <Name>OrangeBall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\Mindcrafters\RedBall.png">
+      <Name>RedBall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="images\GarageGames\AirParticle.png">
+      <Name>AirParticle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\airplane.png">
+      <Name>airplane</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\compass.png">
+      <Name>compass</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\HoverNormal.png">
+      <Name>HoverNormal</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\HoverShell.png">
+      <Name>HoverShell</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\HoverTank.png">
+      <Name>HoverTank</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\HoverTankBlue.png">
+      <Name>HoverTankBlue</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\HoverTankGreen.png">
+      <Name>HoverTankGreen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\HoverTankRed.png">
+      <Name>HoverTankRed</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\HoverTankShadow.png">
+      <Name>HoverTankShadow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\HoverTankYellow.png">
+      <Name>HoverTankYellow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\microbe.png">
+      <Name>microbe</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\pointer.png">
+      <Name>pointer</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\smoke.png">
+      <Name>smoke</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\spark.png">
+      <Name>spark</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="sounds\barrier_collide.wav">
+      <Name>barrier_collide</Name>
+    </None>
+    <None Include="sounds\barrier_collide2.wav">
+      <Name>barrier_collide2</Name>
+    </None>
+    <None Include="sounds\barrier_collide3.wav">
+      <Name>barrier_collide3</Name>
+    </None>
+    <None Include="sounds\bomb_explo_1a.wav">
+      <Name>bomb_explo_1a</Name>
+    </None>
+    <None Include="sounds\bomb_explo_1b.wav">
+      <Name>bomb_explo_1b</Name>
+    </None>
+    <None Include="sounds\bomb_whistle.wav">
+      <Name>bomb_whistle</Name>
+    </None>
+    <None Include="sounds\mouseDown.wav">
+      <Name>mouseDown</Name>
+    </None>
+    <None Include="sounds\mouseOver.wav">
+      <Name>mouseOver</Name>
+    </None>
+    <None Include="sounds\TankTune_1.wav">
+      <Name>TankTune_1</Name>
+    </None>
+    <None Include="sounds\tank_fire.wav">
+      <Name>tank_fire</Name>
+    </None>
+    <None Include="sounds\tank_moving_loop.wav">
+      <Name>tank_moving_loop</Name>
+    </None>
+    <None Include="sounds\tank_moving_loop_b.wav">
+      <Name>tank_moving_loop_b</Name>
+    </None>
+    <None Include="sounds\tank_moving_loop_c.wav">
+      <Name>tank_moving_loop_c</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\MapContentPipeline\MapContentPipeline.csproj">
+      <Project>{FD4176D6-2AAA-48C9-9B9C-09A135479904}</Project>
+      <Name>MapContentPipeline</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MapContent\MapContent.csproj">
+      <Project>{B542116B-AE58-4643-8A34-2251B82DE3AC}</Project>
+      <Name>MapContent</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="images\GarageGames\bullet.png">
+      <Name>bullet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="images\Mindcrafters\crate.png">
+      <Name>crate</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="images\Mindcrafters\gravestoneRIP.png">
+      <Name>gravestoneRIP</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="images\Mindcrafters\remington.png">
+      <Name>remington</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="images\Mindcrafters\railgun.png">
+      <Name>railgun</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="shapes\weapons\assaultRifle\AssaultRifle.png">
+      <Name>AssaultRifle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="shapes\items\healthKit.jpg">
+      <Name>healthKit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\items\smallhealth.png">
+      <Name>smallhealth</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\items\smallhealthn.png">
+      <Name>smallhealthn</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\items\smallhealthw.png">
+      <Name>smallhealthw</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="images\GarageGames\healthKit.png">
+      <Name>healthKit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="images\Mindcrafters\GreenSquare.png">
+      <Name>GreenSquare</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\Mindcrafters\YellowSquare.png">
+      <Name>YellowSquare</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="images\Mindcrafters\corrodedMetal.png">
+      <Name>corrodedMetal</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="images\GarageGames\BombCell.png">
+      <Name>BombCell</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\DustCloud.png">
+      <Name>DustCloud</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\Explosion2.png">
+      <Name>Explosion2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\HitAnim.png">
+      <Name>HitAnim</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\GarageGames\TankShell.png">
+      <Name>TankShell</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="shapes\boombot\blue\blue_ID1.jpg">
+      <Name>blue_ID1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\boombot\blue\blue_ID1PSDbump.png">
+      <Name>blue_ID1PSDbump</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\boombot\blue\blue_ID2.png">
+      <Name>blue_ID2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\boombot\blue\blue_ID2PSDbump.png">
+      <Name>blue_ID2PSDbump</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\boombot\blue\blue_ID3.png">
+      <Name>blue_ID3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\boombot\blue\blue_ID4.png">
+      <Name>blue_ID4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="shapes\boombot\red\orange_ID1.png">
+      <Name>orange_ID1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\boombot\red\orange_ID2.png">
+      <Name>orange_ID2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="shapes\boombot\green\orange_ID1.png">
+      <Name>orange_ID1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\boombot\green\orange_ID2.png">
+      <Name>orange_ID2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="shapes\boombot\yellow\blue_ID1.jpg">
+      <Name>blue_ID1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\boombot\yellow\blue_ID2.png">
+      <Name>blue_ID2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="shapes\boombot\red\blue_ID3.png">
+      <Name>blue_ID3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="shapes\boombot\red\blue_ID4.png">
+      <Name>blue_ID4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="shapes\boombot\green\blue_ID3.png">
+      <Name>blue_ID3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\boombot\green\blue_ID4.png">
+      <Name>blue_ID4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="shapes\boombot\yellow\blue_ID3.png">
+      <Name>blue_ID3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\boombot\yellow\blue_ID4.png">
+      <Name>blue_ID4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="shapes\flag\blue\flag_dif_green.tga">
+      <Name>flag_dif_green</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\flag\blue\flag_id1_dif_green.png">
+      <Name>flag_id1_dif_green</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\flag\blue\flag_id1_nrm.png">
+      <Name>flag_id1_nrm</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\flag\blue\flag_id2_glw.png">
+      <Name>flag_id2_glw</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\flag\green\flag_dif_green.tga">
+      <Name>flag_dif_green</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\flag\green\flag_id1_dif_green.png">
+      <Name>flag_id1_dif_green</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\flag\green\flag_id1_nrm.png">
+      <Name>flag_id1_nrm</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\flag\green\flag_id2_glw.png">
+      <Name>flag_id2_glw</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\flag\red\flag_dif_orange.tga">
+      <Name>flag_dif_orange</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\flag\red\flag_id1_dif_green.png">
+      <Name>flag_id1_dif_green</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\flag\red\flag_id1_nrm.png">
+      <Name>flag_id1_nrm</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\flag\red\flag_id2_glw.png">
+      <Name>flag_id2_glw</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\flag\yellow\flag_dif_orange.tga">
+      <Name>flag_dif_orange</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\flag\yellow\flag_id1_dif_green.png">
+      <Name>flag_id1_dif_green</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\flag\yellow\flag_id1_nrm.png">
+      <Name>flag_id1_nrm</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="shapes\flag\yellow\flag_id2_glw.png">
+      <Name>flag_id2_glw</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="images\GarageGames\idle_north.png">
+      <Name>idle_north</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="maps\RavenMapWithDoorsAndItems.xml">
+      <Name>RavenMapWithDoorsAndItems</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="maps\mindcrafters.xml">
+      <Name>mindcrafters</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="images\Mindcrafters\blueFlag.png">
+      <Name>blueFlag</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\Mindcrafters\greenFlag.png">
+      <Name>greenFlag</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\Mindcrafters\redFlag.png">
+      <Name>redFlag</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\Mindcrafters\yellowFlag.png">
+      <Name>yellowFlag</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="levels\" />
+  </ItemGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>"$(TargetPath)" -exportschema "$(ProjectDir)myschema.txschema"</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <XnaPlatform>Windows</XnaPlatform>
+    <OutputPath>bin\x86\Debug</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <XnaPlatform>Windows</XnaPlatform>
+    <OutputPath>bin\x86\Release</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'GGBinaryRelease|x86' ">
+    <XnaPlatform>Windows</XnaPlatform>
+    <OutputPath>bin\x86\Release</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Xbox 360' ">
+    <XnaPlatform>Xbox 360</XnaPlatform>
+    <OutputPath>bin\Xbox 360\Debug</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Xbox 360' ">
+    <XnaPlatform>Xbox 360</XnaPlatform>
+    <OutputPath>bin\Xbox 360\Release</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'GGBinaryRelease|Xbox 360' ">
+    <XnaPlatform>Xbox 360</XnaPlatform>
+    <OutputPath>bin\Xbox 360\Release</OutputPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\v2.0\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
+  <ItemGroup>
+    <Compile Include="fonts\Arial10.spritefont">
+      <Name>Arial10</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+    <Compile Include="fonts\Arial6.spritefont">
+      <Name>Arial6</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+    <Compile Include="fonts\Arial8.spritefont">
+      <Name>Arial8</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+    <Compile Include="fonts\Impact18.spritefont">
+      <Name>Impact18</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+    <None Include="maps\RavenMap.map">
+      <Name>RavenMap</Name>
+    </None>
+    <None Include="maps\RavenMapWithDoors.map">
+      <Name>RavenMapWithDoors</Name>
+    </None>
+    <None Include="maps\RavenMapWithDoorsAndItems.map">
+      <Name>RavenMapWithDoorsAndItems</Name>
+    </None>
+    <None Include="shapes\boombot\blue\blue_player.dts">
+      <Name>blue_player</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="shapes\boombot\red\red_player.dts">
+      <Name>red_player</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="shapes\boombot\green\green_player.dts">
+      <Name>green_player</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="shapes\boombot\yellow\yellow_player.dts">
+      <Name>yellow_player</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="shapes\flag\blue\flag_blue.dts">
+      <Name>flag_blue</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="shapes\flag\green\flag_green.dts">
+      <Name>flag_green</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="shapes\flag\red\flag_red.dts">
+      <Name>flag_red</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="shapes\flag\yellow\flag_yellow.dts">
+      <Name>flag_yellow</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="shapes\items\healthKit.dts">
+      <Name>healthKit</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="shapes\items\healthPatch.dts">
+      <Name>healthPatch</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="shapes\weapons\assaultRifle\assaultrifle.dts">
+      <Name>assaultrifle</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="shapes\weapons\grenade\grenade.dts">
+      <Name>grenade</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="shapes\weapons\grenade\gun.dts">
+      <Name>gun</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="shapes\weapons\rifle\prifle.dts">
+      <Name>prifle</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="shapes\weapons\rifle\tracer.dts">
+      <Name>tracer</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Compile Include="images\Mindcrafters\BlueSquare.png">
+      <Name>BlueSquare</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\Mindcrafters\RedSquare.png">
+      <Name>RedSquare</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="maps\Options.xml">
+      <Name>Options</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="maps\Parameters.xml">
+      <Name>Parameters</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="maps\RavenMap.xml">
+      <Name>RavenMap</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="maps\RavenMap2.xml">
+      <Name>RavenMap2</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="maps\RavenMapWithDoors.xml">
+      <Name>RavenMapWithDoors</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="maps\RavenMapWithDoors2.xml">
+      <Name>RavenMapWithDoors2</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="maps\RavenMapWithDoorsAndItems2.xml">
+      <Name>RavenMapWithDoorsAndItems2</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="sounds\Sounds.xap">
+      <Name>Sounds</Name>
+      <Importer>XactImporter</Importer>
+      <Processor>XactProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+</Project>

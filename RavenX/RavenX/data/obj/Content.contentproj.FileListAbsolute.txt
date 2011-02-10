@@ -1,0 +1,2 @@
+C:\Users\Jay\Desktop\377\Assignment5Files\RavenX\RavenX\data\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Jay\Desktop\377\Assignment5Files\RavenX\RavenX\data\obj\x86\Debug\sounds\Sounds.xml

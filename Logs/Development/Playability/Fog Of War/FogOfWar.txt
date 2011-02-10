@@ -1,0 +1,45 @@
+Here's what I'm thinking.
+1)  Start each bot with an empty navigation graph
+2)  Start each bot with an blank empty collection of obj(health, weapon, etc.) locations
+3)  As the bot 'sees' the nodes, add them to the graph
+4)  As the bot 'sees' the objects, add them to collection of things to find
+
+I added a FoundTriggersList class that is essentially a wrapper for a list of triggers.  This adds functionality 
+so we can check to see how many weapons/health items etc are found.  
+I decided not to add door triggers to this, since they are visible once you are close enough to see it.  
+there will never be a time when a door switch is not seen...i think.
+
+instead of finding the closest item (health, weapon) in the map triggerlist, 
+it now looks through the foundtriggerlist on the bot entity, and as new ones are discovered they are added
+
+Not sure what to do with the nodes finding yet, it's alot more difficult since graph representation is so 
+intertwined...
+
+-Colin
+--------------------------------
+We need to supplement something for the fog of war, because some bots look really stupid. 
+Overall it's awesome, but I noticed when bots go out of range of an opponent and weapons and items, 
+they look lost, slowly moving randomly. I think maybe we need to improve wander. 
+Maybe have it follow the waypoint graph randomly.
+
+The plainest problem I saw with this was when a bought was at 1hp, and just lazily wandered around, 
+rather than searching the map for a health pack.
+
+-Jason
+--------------------------------
+this is true, we need to improve the calculation of the desirability of exploring when we need health/ammo/have nothing better to do
+
+-Colin
+-------
+
+I just noticed the fogofwar appears to be shorter than the range at which bots can fire at each other. 
+So even though bots have the goal to explore they are firing at each other.
+
+You may want to restrict the range of whatever AttackTarget uses to target people.
+
+-Jason
+-----------------------------------
+I think we are going to move the firing at an opponent into a goal aren't we?
+
+-Colin
+-------------------------------------

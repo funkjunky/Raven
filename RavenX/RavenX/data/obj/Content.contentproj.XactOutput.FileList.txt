@@ -1,0 +1,3 @@
+data\sounds\Sounds.xgs
+data\sounds\Sounds.xwb
+data\sounds\Sounds.xsb

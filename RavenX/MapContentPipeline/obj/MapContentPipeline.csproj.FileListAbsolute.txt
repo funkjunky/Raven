@@ -1,0 +1,10 @@
+C:\Users\Jay\Desktop\377\Assignment5Files\RavenX\MapContentPipeline\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Jay\Desktop\377\Assignment5Files\RavenX\MapContentPipeline\bin\x86\Debug\MapContentPipeline.exe
+C:\Users\Jay\Desktop\377\Assignment5Files\RavenX\MapContentPipeline\bin\x86\Debug\MapContentPipeline.pdb
+C:\Users\Jay\Desktop\377\Assignment5Files\RavenX\MapContentPipeline\bin\x86\Debug\MapContent.dll
+C:\Users\Jay\Desktop\377\Assignment5Files\RavenX\MapContentPipeline\bin\x86\Debug\Mindcrafters.Library.Utility.dll
+C:\Users\Jay\Desktop\377\Assignment5Files\RavenX\MapContentPipeline\bin\x86\Debug\Mindcrafters.TorqueX.Framework.dll
+C:\Users\Jay\Desktop\377\Assignment5Files\RavenX\MapContentPipeline\bin\x86\Debug\Mindcrafters.Library.Utility.pdb
+C:\Users\Jay\Desktop\377\Assignment5Files\RavenX\MapContentPipeline\bin\x86\Debug\MapContent.pdb
+C:\Users\Jay\Desktop\377\Assignment5Files\RavenX\MapContentPipeline\obj\x86\Debug\MapContentPipeline.exe
+C:\Users\Jay\Desktop\377\Assignment5Files\RavenX\MapContentPipeline\obj\x86\Debug\MapContentPipeline.pdb

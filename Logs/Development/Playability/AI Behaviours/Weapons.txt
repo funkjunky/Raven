@@ -1,0 +1,16 @@
+Changes by Morteza  (December 15,2008)
+I have added a little bit more logic to the EvaluatorGetWeapon.cs, Now before we drop the weapon
+we have at hand and pick up the one near the bot. The bot check to see if it can get more ammo for the
+weapon that its holding in its hand. If it can then it goes to get ammo otherwise it will go for the closest weapon.
+
+---------------------------------------------------
+
+what you added seems to make going to get a weapon very desirable regardless of what else is going on.  if the bot has health of say 1%, it should find getting health very desirable, but the changes you made seem to make it ignore that it's about to die in favor of getting more ammo.
+the bots don't drop weapons, they just put it in their inventory, adding more ammo when they pick up another, then the weaponsystem selects whatever weapon is most desirable to use with some fuzzy logic and the weapons held in inventory.
+There is also a weaponevaluator for each of the 3 types of weapons to pick up, so it actually does the evaluation and if it's within 500 of any weapon it really wants to pick it up, regardless of what weapon is in hand as well.
+I just think we should maybe just continue to use some calculations involving the health, and whatever else is going on using the goal tweaker parameters to tune in exactly what we want them to do.
+-ct
+---------------------------------------------------
+I see what you are saying, well What should probely happen is to make the bots look (or do a check) if they are close to a weapon and they can use it to defend themself then maybe it should go for then go for the health,
+hmmm I will take another look at it soon.
+-Morteza

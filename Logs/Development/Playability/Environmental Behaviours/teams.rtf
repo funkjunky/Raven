@@ -1,0 +1,122 @@
+{\rtf1\ansi\ansicpg1252\deff0{\fonttbl{\f0\fswiss\fcharset0 Arial;}}
+{\*\generator Msftedit 5.41.21.2508;}\viewkind4\uc1\pard\lang1033\f0\fs20 (all times are in the 24 hour clock.)\par
+\par
+\ul\b 08/12/11, 1:00\ulnone\b0  - in the file RavenX/RavenX/data/maps/Parameters.xml you can add additional players by increasing the <NumBots> field. However the largest value I can seem to put in is 4. On 5 I get an error with BotStaticSprite. Hmm... thinking about it now it makes sense as Collin mentioned their are only 4 teams possible. I will look into this further.\par
+\par
+\ul\b 08/12/11, 1:59\ulnone\b0  - I fixed the issue of not being able to have more than 4 players. I commented out some if statements. Now the issue is that everyone fires at everyone regardless of team.\par
+\par
+\ul\b 08/12/11, 2:24\ulnone\b0  - bots of the same team will no longer target each other, implying they won't attack each other. That was surprisingly easy... I'm now going to look into adding behavioiur to have the bots get close to the other bots, I suppose flocking. I'm going to read about some things to implement.\par
+\par
+\ul\b 08/12/11, 2:46\ulnone\b0  - In the update function of TargetingSystem.cs line 168 suggests bots currently target whichever bot is closest. Thinking about this further, I would rather keep the targeting to bots attacking each other. So I'll keep the check for teams. I will further investigate how the bots approach things like weapons, and maybe use that to bring teammates together.\par
+\par
+\ul\b 08/12/11, 3:12\ulnone\b0  - I've figured out how each bot does stuff. First of all all things bot are handled by BotEntity.cs. This BotEntity has a "Brain", which is an instantiation of Think.cs, which has a list of evaluator objects, for example EvaluatorAttackTarget.cs. Each evaluator has a CalculateDesirability function, which determines the priority the related goal has of becoming the current goal. An example of a goal would be AttackTarget.cs.\par
+\par
+Something to keep in mind bots attack each other using an instance of TargetingSystem.cs, which is stored in BotEntity itsself.\par
+\par
+I'm thinking of adding another instance of TargetingSystem.cs and having it target the nearest team mate. I will continue to investigate how they move to their enemy, if I don't have to store another isntance of target I won't, but we'll see...\par
+\par
+\ul\b 08/12/11, 3:20\ulnone\b0  - The question I now ask is should bots know where their teammates are at all times? I think the simple answer for now is yes.\par
+\par
+With this in mind I now have to think about the possible implementations of having a team gather together.\par
+\par
+\tab -The simplest possibility would be that each bot seeks or persues their teammates, however if the teammate is behind a deadend the bot could become stuck.\par
+\par
+\tab -Another method is having all the bots decide on a meeting place.\par
+\par
+\tab -A mixture could then be applied, so that they decide on a meeting place, but as soon as a teammate comes into view, they drop their current path goal, and add the goal to seek to their teammate.\par
+\par
+I like this solution for now, however looking at it. This regroups an ENTIRE team. It seems like an unnecessary action, therefor we would have to choose our evaluator carefully. Also it makes sense to me that some kind of commanding unit should be the evaluator here, and no other unit. Not every unit should be check to see if the entire team should regroup. So maybe this should go with an implementation of a commander unit, like a captain.\par
+\par
+I'm going to wait to talk to Johnny, before implementing all this stuff. What would need to be implemented is a new evaluator and goal named RegroupTeam, and some kind of way to choose meeting place.\par
+\par
+\par
+\ul\b 08/12/11, 3:40\ulnone\b0  - Another idea of how teammates could work together is to wait until teammates are within view, then attempt to make a formation with them. \par
+\par
+This could be a really cool looking, yet simple thing to do.\par
+\par
+If I change the SensoryMemory to store teammates, then just stop the targetingSystem from targeting teammates, then bots will still not fire at their teammates, but will have them in their memory. I can then in an evaluator check to see if theirs a teammate in memory, then their distance to determine desireability. The goal will then be based on the number of teammates in FOV... \par
+\par
+hmmm here's when things get tricky, considering both bots may not see each other. They need to coordinate, otherwise they will get stuck in a loop. If they both try to go to the right of the teammate, they will perpetually be moving right =P. Here's again where a captain would be nice to tell the teammates how to form.\par
+\par
+Another option is allowing a bot to act as a sortof captain, and just send a message to the teammate he sees telling him coordinate with him on the formation.\par
+\par
+This should work, however It would be nice if they could communicate back and forth, for example if the teammate can see another teammate, he could tell the bot that sent him the formation message, that their is another teammate to coordinate with.\par
+\par
+This could be done by sending a message back to the first bot. I suppose that will be step 2 of my implementation.\par
+\par
+One of the neat things I want to implement with this are that the formation will depending on the number of teammates. For example, 2 people would be front and back, 3 would be a triangle, 4 could be the "finger four". These formations would be required regardless, having different ones just helps express the change in AI behaviour.\par
+\par
+Another issue that arises are that formations include facing a certain direction, however the current targeting system chooses the target closest, which may not be the direction the bot is supposed to face for the formation. if direction is important for a formation, then the formation will need to influence the target selection of the bot.\par
+\par
+Further formations could influence who is targeted, and possibly the next formation. For example a squad (which is going to be the term I'm going to use to describe a set of teammates who have grouped together) could start by gathering in a "finger four" formation untill all units in the front are killed, or their formation is broken. When they kill enough enemies in the front they could change their formation to two a breast in cover. Also their "finger four" should face the direction with the move enemies.\par
+\par
+... I'm not sure if I want to start implementing this so late at night. I'll be up for another 2 hours max. Luckily it is a completly seperate peice initially, so it can be plugged and unplugged from the code without changing the original code too much.\par
+\par
+\ul\b 08/12/13, 4:43\ulnone\b0  - I moved the code to ensure teams didn't fire at each other from sensorymemory to targetingSystem.\par
+\par
+\ul\b 08/12/13, 19:59\ulnone\b0  - I figured out how the messages will be sent for making formations. I will need to send messages from the composite goal FollowFormation, and receive messages from the evaluator EvaluatorFollowFormation. \par
+\par
+The reason for the reciever is straight forward, because knowing an allie wants to form a formation will affect whether or not the bot will follow formation.\par
+\par
+The reason for the sender is a little trickier. Having the goal send the message means I can have the goal make the formation, which is more logical than the evaluator making the formation, or the goal decider making the formation. Also the formation is created during the activation of the goal, so it is still basically consistant through out.\par
+\par
+\ul\b 08/12/13, 20:28\ulnone\b0  - I couldn't immediately figure out how a bot was to seek to another bot, so I looked at how the attackTarget goal works and found out it's a bit of a hack.\par
+\par
+If the bot has room to strafe, then the bot adds a subgoal strafe. The Atomic goal strafe then strafes left and right while waiting till the enemy is either dead or out of FOV. In other words strafe is completly dependant on the enemy.\par
+\par
+If the bot doesn't have room to strafe, then it will move towards the enemies position when the goal was activated, only when it reaches that goal will it reevaluate the AttackTarget goal.\par
+\par
+In other words I learned nothing about how to seek to another bot. So I will need to add a new Atomic goal SeekToTarget, then add another atomic goal SeekToTargetOffset. or maybe I'll just add the later. I may also turn it into a hybrid of seek and pursuit later, because otherwise I'm afraid the bots will look a little to aggressive in creating a formation, and it will be messy.\par
+\par
+\ul\b 08/12/13, 20:52\ulnone\b0  - Arggggggg... this system isn't good enough. Currently a bot can only persue one goal at a time. This means while a bot is trying to get information with his team, he cannot do anything else. The problem is bots should generally always be forming with their team.\par
+\par
+RavenX cheats for shooting in this respect. Attacking a target isn't a goal, it's just constantly on. The reason it isn't perceived as being dumb by doing this, is because their is no drawback to attacking an enemy. The largest one in most games are that you run slower when running backwards, and I'm not sure if that is evident here.\par
+\par
+hmmm I have to think about this...\par
+\par
+\ul\b 08/12/14, 17:01\ulnone\b0  - I have to completly rethink this from the ground up, knowing what  know about he goal system. I need to develop something with scope, and break my idea down into steps of increasing difficulty all working.\ul\b\line\ulnone\b0\par
+\ul\b 08/12/17, 5:57\ulnone\b0  - I've decided to ditch the idea of formations for now. Instead I'm going to add some simple team influenced AI to the bots. \par
+First I'm going to start by having bots tell team bots to get out of their LoS, so they don't shoot them. \par
+Secondly I'm going to implement seperation, or cohesion. \par
+Thirdly I'm going to modify the target choosing class to be influenced by the number of teammates firing at someone. So teammates will fire at the same person to kill them faster, or stop firing at the same person, if theirs way too many people firing at one person.\par
+Fourth I'm going to ensure that these team AI things can be switched on and off for seperate teams, so I can compare AI versus non-AI.\par
+Fifthly I'm going to check and add if not there, the ability to change tweaker values for the bots of each team, so I can have on team AI, and another team witha  different set of personalities.\par
+\par
+If I finish all these and they work will some other things I want to do are to possibly:\par
+-have a rush evaluator, which would have a group of players simultaniously get closer to an enemy to do more damage and finish him faster. Based off the teams health, the enemies health, and the number of enemies around.\par
+-ensure teammates can communicate regardless of FoW.\par
+-give bots the ability to call for help from teammates. Although this is tricky, and I won't get into detail about it until I get closer to doing it.\par
+\par
+\par
+Back the the things I want to implement I've come to a bit of a roadblock already thinking about how to implement bots getting out of another bot's line of sight. I can tell the bot to travel perpendiculr to the LoS to get out of it the fastest, but what if that sends him away from his goal. If that's the case he will continuiously run into the line of sight then back away again, as if he can't get past a wall... ...\par
+\par
+\ul\b 08/12/17, 22:04\ulnone\b0  - FINALLY I've programmed something that is implemented. So now if a bot finds a teammate is within his line of sight to the enemy he's attacking, and all that teammate is doing is attacking, the goal "seek to position" to a space the bots width away, perpendicular to  line of sight.\par
+\par
+As far as I can tell my thing is working. However it is hard to tell, because the bots rarely actually attack each other and only when their goal is attack, are they getting in each other's way.\par
+\par
+I give up testing this for now, it should be sound. Next I'm going to add seperation, then I'm going to add the influence of teammates for choosing targets. Seperation may be tricky, but the target influence should be super simple.\par
+\par
+\ul\b 08/12/17, 23:28\ulnone\b0  - Apparently seperation is on... I'm going to try tweaking the value. I changed the "ViewDistance in the parameters.xml file on line 26, from 15 to 50. So now seperation will take i account any bot withiin 50pixels of itsself, rather than 15, which was inside the bot. I then tweaked the seperation steeringForce, so that it is multiplied by the size of itsself. It seemed *100 made it too powerful, but the size of itsself was too weak, so I did the size of itsself times 2.\par
+\par
+I then subtracted the normalized perp vector by the vector of the heading of the other bot, so that it will act more like an evade, taking in account where the bot is heading. I then normalized that amount to get normal full direction.\par
+\par
+\ul\b 08/12/18, 1:24\ulnone\b0  - I implemented the attacking of the same target, but that is hard as hell to see as well, because the bots are sorta all crazy right now.\par
+\par
+I'm going to implement that the bots stop attacking if a teammate is infront of them, which will help to identify how well it's working.\par
+\par
+\ul\b 08/12/18, 2:09\ulnone\b0  - It's working fairly well. It's still hard to tell, but for the most part they don't attack if someone is ahead of them, untill they leave.\par
+\par
+Next I'm going to implement that bots will have opponents added to their memory when a teammate spots one. Then if they feel like it they will hunt them.\par
+\par
+Then I want to have entire teams have the ability to have these features turned on or off, as well as to be able to modify the tweakers for each team.\par
+\par
+Then if I have time, I will implement the call for help.\par
+\par
+I'm now going to study for physics for 2 hours, then write code for 373 for 2 hours.\par
+Then tommorow I'm going to study for physics for 3 hours. Then write code for 373 for 2 hours. Then implement the teammate memory for bots, then study for physics the rest of the night.\par
+\par
+Johnny if you're reading this you should do the other part of our task or observe the bots and try and find a weakness in their AI that is team related and post it here! I keep thinking of things that would be cool, but I look at the AI, and it just being stupid, so we may need to fix some things, although i think that's more on Dan and Morteza's job I think, with the Ai behaviours.\par
+\par
+\par
+}
+ 

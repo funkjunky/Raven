@@ -1,0 +1,22 @@
+PLEASE - Don't edit the xml directly...unless you run the MapContentPipeline after.  
+If you need to change parameters temporarily, I understand, but it's very confusing to try 
+and figure out where something has been changed if you don't use the classes and projects that are provided, 
+this requires actually reading the xml.
+This also causes a problem, since nobody else knows what parameters/options you are changing, 
+and when we change the maps and convert them all of your changes are lost.
+-colin
+
+------------------------------------
+If you're talking about the changes I made on parameters.xml, be sure to read the history of check-ins to find exactly what files 
+were changed, or read the documentation added.
+If everyone updates the documentation, their should be no confusion.
+
+Not trying to shift the blame, merely using this note as a reinforcement to update documentation.
+-Jason
+
+-----------------------------------
+no blame placed, it was more of a general comment. 
+i rebuilt the map based on a parameter change i made and things behaved a little differently, 
+that's all, just trying to make things work as smoothly as possible, 
+given the massive code base and many cooks in the kitchen :)
+-ct

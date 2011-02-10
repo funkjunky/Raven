@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Assemblies Version="1073741836">
+  <Assembly Name="Microsoft.Xna.Framework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d" Image="35ff782a-400d-4c27-8668-9accac24f52c" Timestamp="633318657120000000" XmlDocIndexTimestamp="633318679280000000" />
+  <Assembly Name="Microsoft.Xna.Framework.Content.Pipeline, Version=2.0.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d" Image="427bd312-779b-4f6c-b627-b6deae1eeda8" Timestamp="633318664520000000" XmlDocIndexTimestamp="633318681620000000" />
+  <Assembly Name="Microsoft.Xna.Framework.Game, Version=2.0.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d" Image="913e69cc-f980-40bd-8e7c-da565ae641dd" Timestamp="633318657140000000" XmlDocIndexTimestamp="633318680840000000" />
+  <Assembly Name="Mindcrafters.TorqueX.Framework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c1c35eb5489f3e33" Image="0385c5c8-59f2-432f-a53d-1510d38ab7fe" Timestamp="633564110000000000" />
+  <Assembly Name="Microsoft.Xna.Framework.Content.Pipeline.EffectImporter, Version=2.0.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d" Image="c3addaf0-5cf1-40af-bf55-ce23783c78ee" Timestamp="633318664640000000" />
+  <Assembly Name="Microsoft.Xna.Framework.Content.Pipeline.FbxImporter, Version=2.0.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d" Image="0b7db299-5c01-4679-be70-7570a69750cb" Timestamp="633318665100000000" />
+  <Assembly Name="Microsoft.Xna.Framework.Content.Pipeline.TextureImporter, Version=2.0.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d" Image="104e8b79-b661-48ba-8970-c9f8fc0c0871" Timestamp="633318665220000000" />
+  <Assembly Name="Microsoft.Xna.Framework.Content.Pipeline.XImporter, Version=2.0.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d" Image="3c015182-87b7-4351-a1c4-3da49097090a" Timestamp="633318664800000000" />
+  <Assembly Name="JetBrains.Annotations, Version=4.1.933.3, Culture=neutral, PublicKeyToken=1010a0d8d6380325" Image="d4603aee-35bd-4268-b1cc-c94bfdb4976d" Timestamp="633559886920000000" XmlDocIndexTimestamp="633559886920000000" />
+</Assemblies>

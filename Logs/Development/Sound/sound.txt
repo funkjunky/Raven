@@ -1,0 +1,17 @@
+ok, first all there is no tourqueX so there is no easy way to add sound to the game. 
+now there is another tool to add sound but requires a longer time than usual.
+ok here goes. 
+in our XNA game studio folder we have a tool folder , in the tool we have mircrosoft cross plantform audio creation.
+(XACT)
+
+in that program go to ravenx->content(data)->sound->Sounds.xap
+now we can add or modify any sound we want.
+
+(there is a tutorial on XACT, try google and typ[e xna xact tool tutorial. the first link has almost everything we need)
+
+
+o there is one more catch .
+
+Goodwin(being the nice guy that he is) didnt actually put in any codes for sound in the project. So what we have to do is go back to our tank2d assignments , copy the sound codes from there and put those where necessery. I will keep posting as i go , this is what i have got so far.
+
+Anwar

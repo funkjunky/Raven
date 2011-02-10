@@ -1,0 +1,60 @@
+CHANGE:
+	Moved Feature.health(bot) back into the botentity
+REASON:
+	why should the bot not be able to tell us it's current health?
+	it doesn't make sense why the bot isn't the one telling us it's health percentage.
+	-ct
+	
+CHANGE:
+	Added foundtriggers list to botentity
+REASON:
+	To be used for 'discovering' things on the map to simulate fog of war type functionality.
+	-ct
+
+CHANGE:
+	Removed NumRoundsLeft from the weapon class
+REASON:
+	Did the same thing as NumRoundsRemaining, there's enough code without duplication!
+	-ct
+
+CHANGE:
+	Added toggle through bots with space bar(keyboard) or X(gamepad)
+REASON:
+	to give ability to see what each bot is thinking/doing
+	-ct
+
+CHANGE:
+	Bots spawn at team's spawn point now
+REASON:
+	Bots were spawning and fighting right away before they got a chance to showcase their brains.
+	-ct
+	
+CHANGE:
+	Added flag logic to parameters and levels so we can play capture the flag
+REASON:
+	I thought it would be fun...it was
+	-ct
+
+CHANGE:
+	Added rank enum to gamemanager
+REASON:
+	used mostly for deciding who is responsible for capturing the other team's flag, but can be used elsewhere to delegate responsibility to teammembers.
+	-ct
+
+CHANGE:
+	Added Capture Flag goal and capture flag evaluator.
+REASON:
+	Allow for playing capture the flag
+	-ct
+
+CHANGE:
+	modified Dijkstra search to only find things we have discovered.
+REASON:
+	bots were trying to seek to things they had not discovered yet, contrary to the whole premise of the foundtriggers list
+	-ct
+
+CHANGE:
+	Added killing of bot ability with X(keyboard) or Y(gamepad)
+REASON:
+	Remove a bot who is acting weird, arbitrarily inflict damage to agents.
+	-ct

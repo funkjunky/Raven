@@ -1,0 +1,8 @@
+C:\Users\Jay\Desktop\377\Assignment5Files\RavenX\Mindcrafters.Library.Math\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Jay\Desktop\377\Assignment5Files\RavenX\Mindcrafters.Library.Math\bin\Debug\Mindcrafters.Library.Math.dll
+C:\Users\Jay\Desktop\377\Assignment5Files\RavenX\Mindcrafters.Library.Math\bin\Debug\Mindcrafters.Library.Math.pdb
+C:\Users\Jay\Desktop\377\Assignment5Files\RavenX\Mindcrafters.Library.Math\bin\Debug\Microsoft.Xna.Framework.dll
+C:\Users\Jay\Desktop\377\Assignment5Files\RavenX\Mindcrafters.Library.Math\bin\Debug\Mindcrafters.TorqueX.Framework.dll
+C:\Users\Jay\Desktop\377\Assignment5Files\RavenX\Mindcrafters.Library.Math\bin\Debug\Microsoft.Xna.Framework.xml
+C:\Users\Jay\Desktop\377\Assignment5Files\RavenX\Mindcrafters.Library.Math\obj\Debug\Mindcrafters.Library.Math.dll
+C:\Users\Jay\Desktop\377\Assignment5Files\RavenX\Mindcrafters.Library.Math\obj\Debug\Mindcrafters.Library.Math.pdb

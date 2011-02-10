@@ -1,0 +1,3932 @@
+<TorqueSchema>
+  <ExplicitTypes>
+    <Type name="DirectionalLight" fullName="GarageGames.Torque.Lighting.DirectionalLight">
+      <Element name="ConstantAttenuation">
+        <Type>System.Single</Type>
+        <DefaultValue>1</DefaultValue>
+      </Element>
+      <Element name="LinearAttenuation">
+        <Type>System.Single</Type>
+        <DefaultValue>0</DefaultValue>
+      </Element>
+      <Element name="Direction">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="AmbientColor">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="DiffuseColor">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+    </Type>
+    <Type name="LinkPoint" fullName="GarageGames.Torque.T2D.T2DLinkPointComponent+XmlLinkPoint">
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Position">
+        <Type>Microsoft.Xna.Framework.Vector2</Type>
+      </Element>
+      <Element name="Rotation">
+        <Type>System.Single</Type>
+      </Element>
+    </Type>
+    <Type name="Mount" fullName="GarageGames.Torque.T2D.T2DSceneObject+XmlMount">
+      <Element name="Object">
+        <Type>GarageGames.Torque.T2D.T2DSceneObject</Type>
+      </Element>
+      <Element name="LinkPoint">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Offset">
+        <Type>Microsoft.Xna.Framework.Vector2</Type>
+      </Element>
+      <Element name="RotationOffset">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="OwnedByMount">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="SnapToMount">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="TrackMountRotation">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="InheritMountFlip">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="InheritMountVisibility">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="MountForce">
+        <Type>System.Single</Type>
+      </Element>
+    </Type>
+    <Type name="PointLight" fullName="GarageGames.Torque.Lighting.PointLight">
+      <Element name="ConstantAttenuation">
+        <Type>System.Single</Type>
+        <DefaultValue>1</DefaultValue>
+      </Element>
+      <Element name="LinearAttenuation">
+        <Type>System.Single</Type>
+        <DefaultValue>0</DefaultValue>
+      </Element>
+      <Element name="PositionOffset">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="AmbientColor">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="DiffuseColor">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+    </Type>
+    <Type name="T2DAnimationComponent" fullName="GarageGames.Torque.T2D.T2DAnimationComponent">
+      <IsComponent>true</IsComponent>
+      <Element name="Animations">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.T2D.T2DAnimationComponent+Animation</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T2DCollisionComponent" fullName="GarageGames.Torque.T2D.T2DCollisionComponent">
+      <IsComponent>true</IsComponent>
+      <Element name="Images">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.T2D.T2DCollisionImage</Type>
+      </Element>
+      <Element name="RenderCollisionBounds">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="CollisionLayerMask">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="CollidesWith">
+        <Type>GarageGames.Torque.Core.TorqueObjectType</Type>
+      </Element>
+      <Element name="EarlyOutObjectType">
+        <Type>GarageGames.Torque.Core.TorqueObjectType</Type>
+      </Element>
+      <Element name="OnCollision">
+        <Type>GarageGames.Torque.T2D.T2DOnCollisionDelegate</Type>
+      </Element>
+      <Element name="ResolveCollision">
+        <Type>GarageGames.Torque.T2D.T2DResolveCollisionDelegate</Type>
+        <DefaultValue>GarageGames.Torque.T2D.T2DPhysicsComponent.BounceCollision</DefaultValue>
+        <DefaultIsValueOf>true</DefaultIsValueOf>
+      </Element>
+      <Element name="SolveOverlap">
+        <Type>System.Boolean</Type>
+        <DefaultValue>1</DefaultValue>
+      </Element>
+      <Element name="CollisionMaterial">
+        <Type>GarageGames.Torque.T2D.T2DCollisionMaterial</Type>
+      </Element>
+      <Element name="TestEarlyOut">
+        <Type>GarageGames.Torque.T2D.T2DTestCollisionEarlyOutDelegate</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T2DControlComponent" fullName="GarageGames.Torque.T2D.T2DControlComponent">
+      <IsComponent>true</IsComponent>
+      <Element name="PlayerNumber">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T2DForceComponent" fullName="GarageGames.Torque.T2D.T2DForceComponent">
+      <Dependencies>
+        <Type>GarageGames.Torque.T2D.T2DPhysicsComponent</Type>
+      </Dependencies>
+      <IsComponent>true</IsComponent>
+      <Element name="Forces">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.T2D.T2DForceComponent+Force</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T2DLightComponent" fullName="GarageGames.Torque.Lighting.T2DLightComponent">
+      <IsComponent>true</IsComponent>
+      <Element name="LightList">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Lighting.Light</Type>
+      </Element>
+      <Element name="IsEnabled">
+        <Type>System.Boolean</Type>
+        <DefaultValue>true</DefaultValue>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T2DLinkPointComponent" fullName="GarageGames.Torque.T2D.T2DLinkPointComponent">
+      <IsComponent>true</IsComponent>
+      <Element name="LinkPoints">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.T2D.T2DLinkPointComponent+XmlLinkPoint</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T2DPhysicsComponent" fullName="GarageGames.Torque.T2D.T2DPhysicsComponent">
+      <IsComponent>true</IsComponent>
+      <Element name="Velocity">
+        <Type>Microsoft.Xna.Framework.Vector2</Type>
+      </Element>
+      <Element name="AngularVelocity">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="InverseMass">
+        <Type>System.Single</Type>
+        <DefaultValue>1.0</DefaultValue>
+      </Element>
+      <Element name="RotationScale">
+        <Type>System.Single</Type>
+        <DefaultValue>1.0</DefaultValue>
+      </Element>
+      <Element name="Mass">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="ProcessCollisionsAtRest">
+        <Type>System.Boolean</Type>
+        <DefaultValue>false</DefaultValue>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="MinimumMass">
+        <IsStatic>true</IsStatic>
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MinimumRotationalInertia">
+        <IsStatic>true</IsStatic>
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="BounceCollision">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.T2D.T2DResolveCollisionDelegate</Type>
+      </Element>
+      <Element name="ClampCollision">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.T2D.T2DResolveCollisionDelegate</Type>
+      </Element>
+      <Element name="RigidCollision">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.T2D.T2DResolveCollisionDelegate</Type>
+      </Element>
+      <Element name="StickyCollision">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.T2D.T2DResolveCollisionDelegate</Type>
+      </Element>
+      <Element name="KillCollision">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.T2D.T2DResolveCollisionDelegate</Type>
+      </Element>
+      <Element name="DefaultCollisionMaterial">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.T2D.T2DCollisionMaterial</Type>
+      </Element>
+    </Type>
+    <Type name="T2DProcessComponent" fullName="GarageGames.Torque.T2D.T2DProcessComponent">
+      <IsComponent>true</IsComponent>
+      <Element name="ProcessNodes">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.T2D.T2DProcessComponent+Processor</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T2DSizeAnimComponent" fullName="GarageGames.Torque.T2D.T2DSizeAnimComponent">
+      <IsComponent>true</IsComponent>
+      <Element name="AnimationRate">
+        <Type>Microsoft.Xna.Framework.Vector2</Type>
+      </Element>
+      <Element name="MaxSize">
+        <Type>Microsoft.Xna.Framework.Vector2</Type>
+      </Element>
+      <Element name="MinSize">
+        <Type>Microsoft.Xna.Framework.Vector2</Type>
+      </Element>
+      <Element name="PingPongAnimation">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T2DTriggerComponent" fullName="GarageGames.Torque.T2D.T2DTriggerComponent">
+      <IsComponent>true</IsComponent>
+      <Element name="Enabled">
+        <Type>System.Boolean</Type>
+        <DefaultValue>1</DefaultValue>
+      </Element>
+      <Element name="CollidesWith">
+        <Type>GarageGames.Torque.Core.TorqueObjectType</Type>
+      </Element>
+      <Element name="OnEnter">
+        <Type>GarageGames.Torque.T2D.T2DTriggerComponentOnEnterDelegate</Type>
+      </Element>
+      <Element name="OnStay">
+        <Type>GarageGames.Torque.T2D.T2DTriggerComponentOnStayDelegate</Type>
+      </Element>
+      <Element name="OnLeave">
+        <Type>GarageGames.Torque.T2D.T2DTriggerComponentOnLeaveDelegate</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T2DWorldLimitComponent" fullName="GarageGames.Torque.T2D.T2DWorldLimitComponent">
+      <Dependencies>
+        <Type>GarageGames.Torque.T2D.T2DCollisionComponent</Type>
+      </Dependencies>
+      <IsComponent>true</IsComponent>
+      <Element name="MoveLimitMin">
+        <Type>Microsoft.Xna.Framework.Vector2</Type>
+      </Element>
+      <Element name="MoveLimitMax">
+        <Type>Microsoft.Xna.Framework.Vector2</Type>
+      </Element>
+      <Element name="WorldLimitResolveCollision">
+        <Type>GarageGames.Torque.T2D.T2DResolveCollisionDelegate</Type>
+      </Element>
+      <Element name="OnWorldLimit">
+        <Type>GarageGames.Torque.T2D.T2DOnCollisionDelegate</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+  </ExplicitTypes>
+  <ReferencedTypes>
+    <Type name="Animation" fullName="GarageGames.Torque.T2D.T2DAnimationComponent+Animation">
+      <Element name="ParameterName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Duration">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MinValue">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MaxValue">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="PingPong">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Cyclic">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="RandomStart">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="CurveRange">
+        <IsList>true</IsList>
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="CurveValue">
+        <IsList>true</IsList>
+        <Type>System.Single</Type>
+      </Element>
+    </Type>
+    <Type name="Animation" fullName="GarageGames.Torque.T3D.Animation">
+      <DerivedTypes>
+        <Type>GarageGames.Torque.T3D.AnimationFSM</Type>
+        <Type>GarageGames.Torque.T3D.AnimationSet</Type>
+        <Type>GarageGames.Torque.T3D.TSAnimation</Type>
+        <Type>GarageGames.Torque.T3D.TSTrackAnimation</Type>
+        <Type>InterfaceAnimation`1_Of_</Type>
+        <Type>ValueAnimation`1_Of_</Type>
+      </DerivedTypes>
+      <IsInstantiable>false</IsInstantiable>
+      <Element name="TimeScale">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="AnimationFSM" fullName="GarageGames.Torque.T3D.AnimationFSM">
+      <Element name="CurrentState">
+        <Type>GarageGames.Torque.Util.FSMState</Type>
+      </Element>
+      <Element name="PreviousState">
+        <Type>GarageGames.Torque.Util.FSMState</Type>
+      </Element>
+      <Element name="StartState">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="TimeScale">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="AnimationStates">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.T3D.AnimationFSM+XMLAnimation</Type>
+      </Element>
+    </Type>
+    <Type name="AnimationSet" fullName="GarageGames.Torque.T3D.AnimationSet">
+      <Element name="TimeScale">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Animations">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.T3D.Animation</Type>
+      </Element>
+    </Type>
+    <Type name="BaseSceneGraph" fullName="GarageGames.Torque.SceneGraph.BaseSceneGraph">
+      <IsInstantiable>false</IsInstantiable>
+      <Element name="Camera">
+        <Type>GarageGames.Torque.SceneGraph.ISceneCamera</Type>
+      </Element>
+      <Element name="Container">
+        <Type>GarageGames.Torque.SceneGraph.SceneContainer</Type>
+      </Element>
+      <Element name="PreloadMaterials">
+        <Type>GarageGames.Torque.SceneGraph.PreloadMaterialDelegate</Type>
+      </Element>
+      <Element name="DoZPass">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Folder">
+        <Type>GarageGames.Torque.Core.TorqueFolder</Type>
+      </Element>
+      <Element name="ObjectType">
+        <Type>GarageGames.Torque.Core.TorqueObjectType</Type>
+      </Element>
+      <Element name="Pool">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="PoolWithComponents">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="IsTemplate">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="IsPersistent">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="MarkForDelete">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="OnRegistered">
+        <Type>GarageGames.Torque.Core.OnRegisteredDelegate</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="CurrentFrame">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="CurrentTime">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="LastTime">
+        <Type>System.Single</Type>
+      </Element>
+    </Type>
+    <Type name="BitVector" fullName="GarageGames.Torque.TS.BitVector" />
+    <Type name="Blend" fullName="Microsoft.Xna.Framework.Graphics.Blend">
+      <IsEnum>true</IsEnum>
+      <Element name="Zero">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Graphics.Blend</Type>
+      </Element>
+      <Element name="One">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Graphics.Blend</Type>
+      </Element>
+      <Element name="SourceColor">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Graphics.Blend</Type>
+      </Element>
+      <Element name="InverseSourceColor">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Graphics.Blend</Type>
+      </Element>
+      <Element name="SourceAlpha">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Graphics.Blend</Type>
+      </Element>
+      <Element name="InverseSourceAlpha">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Graphics.Blend</Type>
+      </Element>
+      <Element name="DestinationAlpha">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Graphics.Blend</Type>
+      </Element>
+      <Element name="InverseDestinationAlpha">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Graphics.Blend</Type>
+      </Element>
+      <Element name="DestinationColor">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Graphics.Blend</Type>
+      </Element>
+      <Element name="InverseDestinationColor">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Graphics.Blend</Type>
+      </Element>
+      <Element name="SourceAlphaSaturation">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Graphics.Blend</Type>
+      </Element>
+      <Element name="BothSourceAlpha">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Graphics.Blend</Type>
+      </Element>
+      <Element name="BothInverseSourceAlpha">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Graphics.Blend</Type>
+      </Element>
+      <Element name="BlendFactor">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Graphics.Blend</Type>
+      </Element>
+      <Element name="InverseBlendFactor">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Graphics.Blend</Type>
+      </Element>
+    </Type>
+    <Type name="Boolean" fullName="System.Boolean">
+      <Element name="TrueString">
+        <IsStatic>true</IsStatic>
+        <Type>System.String</Type>
+      </Element>
+      <Element name="FalseString">
+        <IsStatic>true</IsStatic>
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="Box3F" fullName="GarageGames.Torque.MathUtil.Box3F">
+      <Element name="Min">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="Max">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+    </Type>
+    <Type name="ButtonProcessor" fullName="GarageGames.Torque.T2D.T2DProcessComponent+ButtonProcessor">
+      <Element name="ButtonIndex">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="InterfaceName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="MinValue">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MaxValue">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MinSpeed">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MaxSpeed">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="InvertInput">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Cycle">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Mode">
+        <Type>GarageGames.Torque.T2D.T2DProcessComponent+Processor+ProcessMode</Type>
+      </Element>
+    </Type>
+    <Type name="CollisionScene" fullName="GarageGames.Torque.T3D.RigidCollision.CollisionScene">
+      <IsInstantiable>false</IsInstantiable>
+    </Type>
+    <Type name="CollisionShape" fullName="GarageGames.Torque.T3D.RigidCollision.CollisionShape">
+      <IsInstantiable>false</IsInstantiable>
+      <Element name="Material">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.Materials.RenderMaterial</Type>
+      </Element>
+      <Element name="Color">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Vector4</Type>
+      </Element>
+    </Type>
+    <Type name="Detail" fullName="GarageGames.Torque.TS.Detail">
+      <Element name="NameIndex">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="SubShapeNumber">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="ObjectDetailNumber">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="PixelSize">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="AverageError">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MaxError">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="PolyCount">
+        <Type>System.Int32</Type>
+      </Element>
+    </Type>
+    <Type name="DirtyFlags" fullName="GarageGames.Torque.TS.DirtyFlags">
+      <IsEnum>true</IsEnum>
+      <Element name="NoneDirty">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.TS.DirtyFlags</Type>
+      </Element>
+      <Element name="TransformDirty">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.TS.DirtyFlags</Type>
+      </Element>
+      <Element name="VisDirty">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.TS.DirtyFlags</Type>
+      </Element>
+      <Element name="FrameDirty">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.TS.DirtyFlags</Type>
+      </Element>
+      <Element name="MatFrameDirty">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.TS.DirtyFlags</Type>
+      </Element>
+      <Element name="DecalDirty">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.TS.DirtyFlags</Type>
+      </Element>
+      <Element name="IflDirty">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.TS.DirtyFlags</Type>
+      </Element>
+      <Element name="ThreadDirty">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.TS.DirtyFlags</Type>
+      </Element>
+      <Element name="AllDirtyMask">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.TS.DirtyFlags</Type>
+      </Element>
+    </Type>
+    <Type name="DragForce" fullName="GarageGames.Torque.T2D.T2DForceComponent+DragForce">
+      <Element name="ConstantDrag">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="MinimumRotationDrag">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MaximumRotationDrag">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="AbsoluteDragCap">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="AbsoluteDragRotationCap">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="AbsoluteDragFactor">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="LinkName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="MinStrength">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MaxStrength">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="InitialStrength">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Offset">
+        <Type>Microsoft.Xna.Framework.Vector2</Type>
+      </Element>
+      <Element name="RotationOffset">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="UseLinkDirection">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="ConstantDirectionIsWorldSpace">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="ConstantDirection">
+        <Type>System.Single</Type>
+      </Element>
+    </Type>
+    <Type name="DragForceBidirectional" fullName="GarageGames.Torque.T2D.T2DForceComponent+DragForceBidirectional">
+      <Element name="ConstantDrag">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="MinimumRotationDrag">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MaximumRotationDrag">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="AbsoluteDragCap">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="AbsoluteDragRotationCap">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="AbsoluteDragFactor">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="LinkName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="MinStrength">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MaxStrength">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="InitialStrength">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Offset">
+        <Type>Microsoft.Xna.Framework.Vector2</Type>
+      </Element>
+      <Element name="RotationOffset">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="UseLinkDirection">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="ConstantDirectionIsWorldSpace">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="ConstantDirection">
+        <Type>System.Single</Type>
+      </Element>
+    </Type>
+    <Type name="DragForceDirectional" fullName="GarageGames.Torque.T2D.T2DForceComponent+DragForceDirectional">
+      <Element name="ConstantDrag">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="MinimumRotationDrag">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MaximumRotationDrag">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="AbsoluteDragCap">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="AbsoluteDragRotationCap">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="AbsoluteDragFactor">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="LinkName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="MinStrength">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MaxStrength">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="InitialStrength">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Offset">
+        <Type>Microsoft.Xna.Framework.Vector2</Type>
+      </Element>
+      <Element name="RotationOffset">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="UseLinkDirection">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="ConstantDirectionIsWorldSpace">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="ConstantDirection">
+        <Type>System.Single</Type>
+      </Element>
+    </Type>
+    <Type name="DrawPrimitive" fullName="GarageGames.Torque.TS.DrawPrimitive">
+      <Element name="Start">
+        <Type>System.UInt16</Type>
+      </Element>
+      <Element name="NumElements">
+        <Type>System.UInt16</Type>
+      </Element>
+      <Element name="MaterialIndex">
+        <Type>System.UInt32</Type>
+      </Element>
+      <Element name="Triangles">
+        <IsStatic>true</IsStatic>
+        <Type>System.UInt32</Type>
+      </Element>
+      <Element name="Strip">
+        <IsStatic>true</IsStatic>
+        <Type>System.UInt32</Type>
+      </Element>
+      <Element name="Indexed">
+        <IsStatic>true</IsStatic>
+        <Type>System.UInt32</Type>
+      </Element>
+      <Element name="NoMaterial">
+        <IsStatic>true</IsStatic>
+        <Type>System.UInt32</Type>
+      </Element>
+      <Element name="TypeMask">
+        <IsStatic>true</IsStatic>
+        <Type>System.UInt32</Type>
+      </Element>
+      <Element name="MaterialMask">
+        <IsStatic>true</IsStatic>
+        <Type>System.UInt32</Type>
+      </Element>
+    </Type>
+    <Type name="Force" fullName="GarageGames.Torque.T2D.T2DForceComponent+Force">
+      <DerivedTypes>
+        <Type>GarageGames.Torque.T2D.T2DForceComponent+DragForce</Type>
+        <Type>GarageGames.Torque.T2D.T2DForceComponent+DragForceBidirectional</Type>
+        <Type>GarageGames.Torque.T2D.T2DForceComponent+DragForceDirectional</Type>
+        <Type>GarageGames.Torque.T2D.T2DForceComponent+MasslessForce</Type>
+      </DerivedTypes>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="LinkName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="MinStrength">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MaxStrength">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="InitialStrength">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Offset">
+        <Type>Microsoft.Xna.Framework.Vector2</Type>
+      </Element>
+      <Element name="RotationOffset">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="UseLinkDirection">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="ConstantDirectionIsWorldSpace">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="ConstantDirection">
+        <Type>System.Single</Type>
+      </Element>
+    </Type>
+    <Type name="FreeCameraComponent" fullName="GarageGames.Torque.T3D.FreeCameraComponent">
+      <IsComponent>true</IsComponent>
+      <Element name="PlayerIndex">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="CameraMoveSpeed">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="CameraTurnSpeed">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="InvertedY">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="WorldViewIndex">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="FOV">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="FarDistance">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="TransformInterfaceName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="PositionOffset">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="RotatedPositionOffset">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="RotationOffset">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="BoundaryObjectTypes">
+        <Type>GarageGames.Torque.Core.TorqueObjectType</Type>
+      </Element>
+      <Element name="RigidManager">
+        <Type>GarageGames.Torque.T3D.RigidCollision.RigidCollisionManager</Type>
+      </Element>
+      <Element name="NextSceneClient">
+        <Type>GarageGames.Torque.T3D.T3DSceneClient</Type>
+      </Element>
+      <Element name="SceneGroupName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="SceneClientName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="FSMState" fullName="GarageGames.Torque.Util.FSMState">
+      <IsInstantiable>false</IsInstantiable>
+      <Element name="StateName">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="IDirtyListener" fullName="GarageGames.Torque.T3D.Transform3D+IDirtyListener">
+      <IsInstantiable>false</IsInstantiable>
+    </Type>
+    <Type name="IflMaterial" fullName="GarageGames.Torque.TS.IflMaterial">
+      <Element name="NameIndex">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="MaterialSlot">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="FirstFrame">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="FirstFrameOffTimeIndex">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="FrameCount">
+        <Type>System.Int32</Type>
+      </Element>
+    </Type>
+    <Type name="Int16" fullName="System.Int16">
+      <Element name="MaxValue">
+        <IsStatic>true</IsStatic>
+        <Type>System.Int16</Type>
+      </Element>
+      <Element name="MinValue">
+        <IsStatic>true</IsStatic>
+        <Type>System.Int16</Type>
+      </Element>
+    </Type>
+    <Type name="Int32" fullName="System.Int32">
+      <Element name="MaxValue">
+        <IsStatic>true</IsStatic>
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="MinValue">
+        <IsStatic>true</IsStatic>
+        <Type>System.Int32</Type>
+      </Element>
+    </Type>
+    <Type name="InterfaceAnimation`1" fullName="InterfaceAnimation`1_Of_">
+      <Element name="InterfaceName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="TimeScale">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="ISceneCamera" fullName="GarageGames.Torque.SceneGraph.ISceneCamera">
+      <IsInstantiable>false</IsInstantiable>
+      <Element name="FOV">
+        <Type>System.Single</Type>
+      </Element>
+    </Type>
+    <Type name="LeverProcessor" fullName="GarageGames.Torque.T2D.T2DProcessComponent+LeverProcessor">
+      <Element name="LeverIndex">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="InterfaceName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="MinValue">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MaxValue">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MinSpeed">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MaxSpeed">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="InvertInput">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Cycle">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Mode">
+        <Type>GarageGames.Torque.T2D.T2DProcessComponent+Processor+ProcessMode</Type>
+      </Element>
+    </Type>
+    <Type name="Light" fullName="GarageGames.Torque.Lighting.Light">
+      <DerivedTypes>
+        <Type>GarageGames.Torque.Lighting.DirectionalLight</Type>
+        <Type>GarageGames.Torque.Lighting.PointLight</Type>
+      </DerivedTypes>
+      <IsInstantiable>false</IsInstantiable>
+      <Element name="ConstantAttenuation">
+        <Type>System.Single</Type>
+        <DefaultValue>1</DefaultValue>
+      </Element>
+      <Element name="LinearAttenuation">
+        <Type>System.Single</Type>
+        <DefaultValue>0</DefaultValue>
+      </Element>
+      <Element name="AmbientColor">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="DiffuseColor">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+    </Type>
+    <Type name="LightComponent" fullName="GarageGames.Torque.Lighting.LightComponent">
+      <IsComponent>true</IsComponent>
+      <Element name="LightList">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Lighting.Light</Type>
+      </Element>
+      <Element name="IsEnabled">
+        <Type>System.Boolean</Type>
+        <DefaultValue>true</DefaultValue>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="MasslessForce" fullName="GarageGames.Torque.T2D.T2DForceComponent+MasslessForce">
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="LinkName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="MinStrength">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MaxStrength">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="InitialStrength">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Offset">
+        <Type>Microsoft.Xna.Framework.Vector2</Type>
+      </Element>
+      <Element name="RotationOffset">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="UseLinkDirection">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="ConstantDirectionIsWorldSpace">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="ConstantDirection">
+        <Type>System.Single</Type>
+      </Element>
+    </Type>
+    <Type name="Material" fullName="GarageGames.Torque.TS.Material">
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Flags">
+        <Type>GarageGames.Torque.TS.MaterialFlags</Type>
+      </Element>
+    </Type>
+    <Type name="MaterialFlags" fullName="GarageGames.Torque.TS.MaterialFlags">
+      <IsEnum>true</IsEnum>
+      <Element name="S_Wrap">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.TS.MaterialFlags</Type>
+      </Element>
+      <Element name="T_Wrap">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.TS.MaterialFlags</Type>
+      </Element>
+      <Element name="Translucent">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.TS.MaterialFlags</Type>
+      </Element>
+      <Element name="IflMaterial">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.TS.MaterialFlags</Type>
+      </Element>
+    </Type>
+    <Type name="Matrix" fullName="Microsoft.Xna.Framework.Matrix">
+      <Element name="Up">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="Down">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="Right">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="Left">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="Forward">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="Backward">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="Translation">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="M11">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="M12">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="M13">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="M14">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="M21">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="M22">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="M23">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="M24">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="M31">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="M32">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="M33">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="M34">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="M41">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="M42">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="M43">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="M44">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Identity">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Matrix</Type>
+      </Element>
+    </Type>
+    <Type name="Mesh" fullName="GarageGames.Torque.TS.Mesh">
+      <DerivedTypes>
+        <Type>GarageGames.Torque.TS.SkinMesh</Type>
+        <Type>GarageGames.Torque.TS.SortedMesh</Type>
+      </DerivedTypes>
+      <Element name="_primitives">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.TS.DrawPrimitive</Type>
+      </Element>
+      <Element name="_verts">
+        <IsList>true</IsList>
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="_norms">
+        <IsList>true</IsList>
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="_tangents">
+        <IsList>true</IsList>
+        <Type>Microsoft.Xna.Framework.Vector4</Type>
+      </Element>
+      <Element name="_tverts">
+        <IsList>true</IsList>
+        <Type>Microsoft.Xna.Framework.Vector2</Type>
+      </Element>
+      <Element name="_indices">
+        <IsList>true</IsList>
+        <Type>System.Int16</Type>
+      </Element>
+      <Element name="_parentMesh">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="_numFrames">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="_numMatFrames">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="_vertsPerFrame">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="_vb">
+        <Type>Resource`1_Of_Microsoft.Xna.Framework.Graphics.DynamicVertexBuffer</Type>
+      </Element>
+      <Element name="_ib">
+        <Type>Resource`1_Of_Microsoft.Xna.Framework.Graphics.DynamicIndexBuffer</Type>
+      </Element>
+      <Element name="_bounds">
+        <Type>GarageGames.Torque.MathUtil.Box3F</Type>
+      </Element>
+      <Element name="_center">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="_radius">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="_vertOffset">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="_indexOffset">
+        <Type>System.Int32</Type>
+      </Element>
+    </Type>
+    <Type name="Node" fullName="GarageGames.Torque.TS.Node">
+      <Element name="NameIndex">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="ParentIndex">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="FirstObject">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="FirstChild">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="NextSibling">
+        <Type>System.Int32</Type>
+      </Element>
+    </Type>
+    <Type name="Object" fullName="GarageGames.Torque.TS.Object">
+      <Element name="NameIndex">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="MeshCount">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="FirstMesh">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="NodeIndex">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="NextSibling">
+        <Type>System.Int32</Type>
+      </Element>
+    </Type>
+    <Type name="ObjectState" fullName="GarageGames.Torque.TS.ObjectState">
+      <Element name="Visibility">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="FrameIndex">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="MaterialFrameIndex">
+        <Type>System.Int32</Type>
+      </Element>
+    </Type>
+    <Type name="OnCollisionDelegate" fullName="GarageGames.Torque.T3D.OnCollisionDelegate">
+      <IsDelegate>true</IsDelegate>
+      <IsInstantiable>false</IsInstantiable>
+    </Type>
+    <Type name="OnRegisteredDelegate" fullName="GarageGames.Torque.Core.OnRegisteredDelegate">
+      <IsDelegate>true</IsDelegate>
+      <IsInstantiable>false</IsInstantiable>
+    </Type>
+    <Type name="PolarLengthProcessor" fullName="GarageGames.Torque.T2D.T2DProcessComponent+PolarLengthProcessor">
+      <Element name="StickIndex">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="InterfaceName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="MinValue">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MaxValue">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MinSpeed">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MaxSpeed">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="InvertInput">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Cycle">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Mode">
+        <Type>GarageGames.Torque.T2D.T2DProcessComponent+Processor+ProcessMode</Type>
+      </Element>
+    </Type>
+    <Type name="PolarRotationProcessor" fullName="GarageGames.Torque.T2D.T2DProcessComponent+PolarRotationProcessor">
+      <Element name="StickIndex">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="InterfaceName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="MinValue">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MaxValue">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MinSpeed">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MaxSpeed">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="InvertInput">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Cycle">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Mode">
+        <Type>GarageGames.Torque.T2D.T2DProcessComponent+Processor+ProcessMode</Type>
+      </Element>
+    </Type>
+    <Type name="PreloadMaterialDelegate" fullName="GarageGames.Torque.SceneGraph.PreloadMaterialDelegate">
+      <IsDelegate>true</IsDelegate>
+      <IsInstantiable>false</IsInstantiable>
+    </Type>
+    <Type name="ProcessMode" fullName="GarageGames.Torque.T2D.T2DProcessComponent+Processor+ProcessMode">
+      <IsEnum>true</IsEnum>
+      <Element name="Direct">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.T2D.T2DProcessComponent+Processor+ProcessMode</Type>
+      </Element>
+      <Element name="Track">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.T2D.T2DProcessComponent+Processor+ProcessMode</Type>
+      </Element>
+      <Element name="Delta">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.T2D.T2DProcessComponent+Processor+ProcessMode</Type>
+      </Element>
+    </Type>
+    <Type name="Processor" fullName="GarageGames.Torque.T2D.T2DProcessComponent+Processor">
+      <DerivedTypes>
+        <Type>GarageGames.Torque.T2D.T2DProcessComponent+ButtonProcessor</Type>
+        <Type>GarageGames.Torque.T2D.T2DProcessComponent+LeverProcessor</Type>
+        <Type>GarageGames.Torque.T2D.T2DProcessComponent+PolarLengthProcessor</Type>
+        <Type>GarageGames.Torque.T2D.T2DProcessComponent+PolarRotationProcessor</Type>
+        <Type>GarageGames.Torque.T2D.T2DProcessComponent+StickProcessor</Type>
+        <Type>GarageGames.Torque.T2D.T2DProcessComponent+TriggerProcessor</Type>
+      </DerivedTypes>
+      <IsInstantiable>false</IsInstantiable>
+      <Element name="InterfaceName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="MinValue">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MaxValue">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MinSpeed">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MaxSpeed">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="InvertInput">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Cycle">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Mode">
+        <Type>GarageGames.Torque.T2D.T2DProcessComponent+Processor+ProcessMode</Type>
+      </Element>
+    </Type>
+    <Type name="Quat16" fullName="GarageGames.Torque.MathUtil.Quat16">
+      <Element name="X">
+        <Type>System.Int16</Type>
+      </Element>
+      <Element name="Y">
+        <Type>System.Int16</Type>
+      </Element>
+      <Element name="Z">
+        <Type>System.Int16</Type>
+      </Element>
+      <Element name="W">
+        <Type>System.Int16</Type>
+      </Element>
+    </Type>
+    <Type name="Quaternion" fullName="Microsoft.Xna.Framework.Quaternion">
+      <Element name="X">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Y">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Z">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="W">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Identity">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Quaternion</Type>
+      </Element>
+    </Type>
+    <Type name="RenderMaterial" fullName="GarageGames.Torque.Materials.RenderMaterial">
+      <Element name="NameMapping">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="EffectFilename">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="TextureDivider">
+        <Type>GarageGames.Torque.Materials.TextureDivider</Type>
+      </Element>
+      <Element name="IsWireframe">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="IsReflective">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="IsRefractive">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="IsTranslucent">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="IsAdditive">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="SourceBlend">
+        <Type>Microsoft.Xna.Framework.Graphics.Blend</Type>
+      </Element>
+      <Element name="DestinationBlend">
+        <Type>Microsoft.Xna.Framework.Graphics.Blend</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="Resource`1" fullName="Resource`1_Of_Microsoft.Xna.Framework.Graphics.DynamicIndexBuffer" />
+    <Type name="Resource`1" fullName="Resource`1_Of_Microsoft.Xna.Framework.Graphics.DynamicVertexBuffer" />
+    <Type name="RigidBody" fullName="GarageGames.Torque.T3D.RigidCollision.RigidBody">
+      <Element name="Frozen">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Kinetic">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Immovable">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Mass">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="InverseMass">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="ExternalForce">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="ExternalTorque">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="GravityScale">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Position">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="AngularPosition">
+        <Type>Microsoft.Xna.Framework.Quaternion</Type>
+      </Element>
+      <Element name="Transform">
+        <Type>Microsoft.Xna.Framework.Matrix</Type>
+      </Element>
+      <Element name="Velocity">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="Momentum">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="AngularVelocity">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="AngularMomentum">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="Material">
+        <Type>GarageGames.Torque.T3D.RigidCollision.RigidMaterial</Type>
+      </Element>
+      <Element name="RigidScene">
+        <Type>GarageGames.Torque.T3D.RigidCollision.RigidScene</Type>
+      </Element>
+      <Element name="ContactLevel">
+        <Type>System.Int32</Type>
+      </Element>
+    </Type>
+    <Type name="RigidCollisionManager" fullName="GarageGames.Torque.T3D.RigidCollision.RigidCollisionManager">
+      <Element name="ResolveCollisionSteps">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="ResolveContactSteps">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="ShockSteps">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="MaxUpdateSetp">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="CollisionListCacheSize">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="CollisionScene">
+        <Type>GarageGames.Torque.T3D.RigidCollision.CollisionScene</Type>
+      </Element>
+      <Element name="RigidScene">
+        <Type>GarageGames.Torque.T3D.RigidCollision.RigidScene</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Folder">
+        <Type>GarageGames.Torque.Core.TorqueFolder</Type>
+      </Element>
+      <Element name="ObjectType">
+        <Type>GarageGames.Torque.Core.TorqueObjectType</Type>
+      </Element>
+      <Element name="Pool">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="PoolWithComponents">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="IsTemplate">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="IsPersistent">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="MarkForDelete">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="OnRegistered">
+        <Type>GarageGames.Torque.Core.OnRegisteredDelegate</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="RigidConstraint" fullName="GarageGames.Torque.T3D.RigidCollision.RigidConstraint">
+      <IsInstantiable>false</IsInstantiable>
+      <Element name="Body1">
+        <Type>GarageGames.Torque.T3D.RigidCollision.RigidBody</Type>
+      </Element>
+      <Element name="Body2">
+        <Type>GarageGames.Torque.T3D.RigidCollision.RigidBody</Type>
+      </Element>
+    </Type>
+    <Type name="RigidMaterial" fullName="GarageGames.Torque.T3D.RigidCollision.RigidMaterial">
+      <Element name="Restitution">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="KineticFriction">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="StaticFriction">
+        <Type>System.Single</Type>
+      </Element>
+    </Type>
+    <Type name="RigidScene" fullName="GarageGames.Torque.T3D.RigidCollision.RigidScene">
+      <Element name="NumShockSteps">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="Gravity">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+    </Type>
+    <Type name="SceneContainer" fullName="GarageGames.Torque.SceneGraph.SceneContainer">
+      <IsInstantiable>false</IsInstantiable>
+      <Element name="MaxBinsPerObject">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="SceneGraph">
+        <Type>GarageGames.Torque.SceneGraph.BaseSceneGraph</Type>
+      </Element>
+      <Element name="BinSize">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="BinCount">
+        <Type>System.UInt32</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="DefaultBinSize">
+        <IsStatic>true</IsStatic>
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="DefaultBinCount">
+        <IsStatic>true</IsStatic>
+        <Type>System.UInt32</Type>
+      </Element>
+      <Element name="PreAllocSceneBinArrayReferences">
+        <IsStatic>true</IsStatic>
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="UseFreeList">
+        <IsStatic>true</IsStatic>
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="FreeListBlockSize">
+        <IsStatic>true</IsStatic>
+        <Type>System.UInt32</Type>
+      </Element>
+    </Type>
+    <Type name="SceneContainerData" fullName="GarageGames.Torque.SceneGraph.SceneContainerData" />
+    <Type name="Sequence" fullName="GarageGames.Torque.TS.Sequence">
+      <Element name="NameIndex">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="KeyframeCount">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="Duration">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="BaseRotation">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="BaseTranslation">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="BaseScale">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="BaseObjectState">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="FirstGroundFrame">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="GroundFrameCount">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="FirstTrigger">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="TriggerCount">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="ToolBegin">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="DoesRotationMatter">
+        <Type>GarageGames.Torque.TS.BitVector</Type>
+      </Element>
+      <Element name="DoesTranslationMatter">
+        <Type>GarageGames.Torque.TS.BitVector</Type>
+      </Element>
+      <Element name="DoesScaleMatter">
+        <Type>GarageGames.Torque.TS.BitVector</Type>
+      </Element>
+      <Element name="DoesVisibilityMatter">
+        <Type>GarageGames.Torque.TS.BitVector</Type>
+      </Element>
+      <Element name="DoesFrameMatter">
+        <Type>GarageGames.Torque.TS.BitVector</Type>
+      </Element>
+      <Element name="DoesMaterialFrameMatter">
+        <Type>GarageGames.Torque.TS.BitVector</Type>
+      </Element>
+      <Element name="DoesIflMatter">
+        <Type>GarageGames.Torque.TS.BitVector</Type>
+      </Element>
+      <Element name="Priority">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="Flags">
+        <Type>GarageGames.Torque.TS.SequenceFlags</Type>
+      </Element>
+      <Element name="DirtyFlags">
+        <Type>GarageGames.Torque.TS.DirtyFlags</Type>
+      </Element>
+    </Type>
+    <Type name="SequenceFlags" fullName="GarageGames.Torque.TS.SequenceFlags">
+      <IsEnum>true</IsEnum>
+      <Element name="None">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.TS.SequenceFlags</Type>
+      </Element>
+      <Element name="UniformScale">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.TS.SequenceFlags</Type>
+      </Element>
+      <Element name="AlignedScale">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.TS.SequenceFlags</Type>
+      </Element>
+      <Element name="ArbitraryScale">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.TS.SequenceFlags</Type>
+      </Element>
+      <Element name="Blend">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.TS.SequenceFlags</Type>
+      </Element>
+      <Element name="Cyclic">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.TS.SequenceFlags</Type>
+      </Element>
+      <Element name="MakePath">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.TS.SequenceFlags</Type>
+      </Element>
+      <Element name="IflInit">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.TS.SequenceFlags</Type>
+      </Element>
+      <Element name="HasTranslucency">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.TS.SequenceFlags</Type>
+      </Element>
+      <Element name="AnyScale">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.TS.SequenceFlags</Type>
+      </Element>
+    </Type>
+    <Type name="Shape" fullName="GarageGames.Torque.TS.Shape">
+      <Element name="Nodes">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.TS.Node</Type>
+      </Element>
+      <Element name="Objects">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.TS.Object</Type>
+      </Element>
+      <Element name="IflMaterials">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.TS.IflMaterial</Type>
+      </Element>
+      <Element name="ObjectStates">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.TS.ObjectState</Type>
+      </Element>
+      <Element name="SubShapeFirstNode">
+        <IsList>true</IsList>
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="SubShapeFirstObject">
+        <IsList>true</IsList>
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="SubShapeNodeCount">
+        <IsList>true</IsList>
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="SubShapeObjectCount">
+        <IsList>true</IsList>
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="SubShapeFirstTranslucentObject">
+        <IsList>true</IsList>
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="Details">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.TS.Detail</Type>
+      </Element>
+      <Element name="DefaultRotations">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.MathUtil.Quat16</Type>
+      </Element>
+      <Element name="DefaultTranslations">
+        <IsList>true</IsList>
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="Meshes">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.TS.Mesh</Type>
+      </Element>
+      <Element name="Sequences">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.TS.Sequence</Type>
+      </Element>
+      <Element name="NodeRotations">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.MathUtil.Quat16</Type>
+      </Element>
+      <Element name="NodeTranslations">
+        <IsList>true</IsList>
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="NodeUniformScales">
+        <IsList>true</IsList>
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="NodeAlignedScales">
+        <IsList>true</IsList>
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="NodeArbitraryScaleRotations">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.MathUtil.Quat16</Type>
+      </Element>
+      <Element name="NodeArbitraryScaleFactors">
+        <IsList>true</IsList>
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="GroundRotations">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.MathUtil.Quat16</Type>
+      </Element>
+      <Element name="GroundTranslations">
+        <IsList>true</IsList>
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="Triggers">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.TS.Trigger</Type>
+      </Element>
+      <Element name="IflFrameOffTimes">
+        <IsList>true</IsList>
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Names">
+        <IsList>true</IsList>
+        <Type>System.String</Type>
+      </Element>
+      <Element name="MaterialList">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.TS.Material</Type>
+      </Element>
+      <Element name="Radius">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="TubeRadius">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Center">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="Bounds">
+        <Type>GarageGames.Torque.MathUtil.Box3F</Type>
+      </Element>
+      <Element name="SmallestVisibleSize">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="SmallestVisibleDL">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="Flags">
+        <Type>GarageGames.Torque.TS.SequenceFlags</Type>
+      </Element>
+      <Element name="FilePath">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="IsVBIBInitialized">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Transforms">
+        <IsStatic>true</IsStatic>
+        <IsList>true</IsList>
+        <Type>Microsoft.Xna.Framework.Matrix</Type>
+      </Element>
+      <Element name="CurrentFilePath">
+        <IsStatic>true</IsStatic>
+        <Type>System.String</Type>
+      </Element>
+      <Element name="WriteVersion">
+        <IsStatic>true</IsStatic>
+        <Type>System.Int32</Type>
+      </Element>
+    </Type>
+    <Type name="Single" fullName="System.Single">
+      <Element name="MinValue">
+        <IsStatic>true</IsStatic>
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Epsilon">
+        <IsStatic>true</IsStatic>
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MaxValue">
+        <IsStatic>true</IsStatic>
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="PositiveInfinity">
+        <IsStatic>true</IsStatic>
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="NegativeInfinity">
+        <IsStatic>true</IsStatic>
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="NaN">
+        <IsStatic>true</IsStatic>
+        <Type>System.Single</Type>
+      </Element>
+    </Type>
+    <Type name="SkinMesh" fullName="GarageGames.Torque.TS.SkinMesh">
+      <Element name="_primitives">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.TS.DrawPrimitive</Type>
+      </Element>
+      <Element name="_verts">
+        <IsList>true</IsList>
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="_norms">
+        <IsList>true</IsList>
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="_tangents">
+        <IsList>true</IsList>
+        <Type>Microsoft.Xna.Framework.Vector4</Type>
+      </Element>
+      <Element name="_tverts">
+        <IsList>true</IsList>
+        <Type>Microsoft.Xna.Framework.Vector2</Type>
+      </Element>
+      <Element name="_indices">
+        <IsList>true</IsList>
+        <Type>System.Int16</Type>
+      </Element>
+      <Element name="_parentMesh">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="_numFrames">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="_numMatFrames">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="_vertsPerFrame">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="_vb">
+        <Type>Resource`1_Of_Microsoft.Xna.Framework.Graphics.DynamicVertexBuffer</Type>
+      </Element>
+      <Element name="_ib">
+        <Type>Resource`1_Of_Microsoft.Xna.Framework.Graphics.DynamicIndexBuffer</Type>
+      </Element>
+      <Element name="_bounds">
+        <Type>GarageGames.Torque.MathUtil.Box3F</Type>
+      </Element>
+      <Element name="_center">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="_radius">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="_vertOffset">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="_indexOffset">
+        <Type>System.Int32</Type>
+      </Element>
+    </Type>
+    <Type name="SortedMesh" fullName="GarageGames.Torque.TS.SortedMesh">
+      <Element name="_primitives">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.TS.DrawPrimitive</Type>
+      </Element>
+      <Element name="_verts">
+        <IsList>true</IsList>
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="_norms">
+        <IsList>true</IsList>
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="_tangents">
+        <IsList>true</IsList>
+        <Type>Microsoft.Xna.Framework.Vector4</Type>
+      </Element>
+      <Element name="_tverts">
+        <IsList>true</IsList>
+        <Type>Microsoft.Xna.Framework.Vector2</Type>
+      </Element>
+      <Element name="_indices">
+        <IsList>true</IsList>
+        <Type>System.Int16</Type>
+      </Element>
+      <Element name="_parentMesh">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="_numFrames">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="_numMatFrames">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="_vertsPerFrame">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="_vb">
+        <Type>Resource`1_Of_Microsoft.Xna.Framework.Graphics.DynamicVertexBuffer</Type>
+      </Element>
+      <Element name="_ib">
+        <Type>Resource`1_Of_Microsoft.Xna.Framework.Graphics.DynamicIndexBuffer</Type>
+      </Element>
+      <Element name="_bounds">
+        <Type>GarageGames.Torque.MathUtil.Box3F</Type>
+      </Element>
+      <Element name="_center">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="_radius">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="_vertOffset">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="_indexOffset">
+        <Type>System.Int32</Type>
+      </Element>
+    </Type>
+    <Type name="StickProcessor" fullName="GarageGames.Torque.T2D.T2DProcessComponent+StickProcessor">
+      <Element name="StickIndex">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="Axis">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="InterfaceName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="MinValue">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MaxValue">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MinSpeed">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MaxSpeed">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="InvertInput">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Cycle">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Mode">
+        <Type>GarageGames.Torque.T2D.T2DProcessComponent+Processor+ProcessMode</Type>
+      </Element>
+    </Type>
+    <Type name="String" fullName="System.String">
+      <Element name="Empty">
+        <IsStatic>true</IsStatic>
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T2DCollisionImage" fullName="GarageGames.Torque.T2D.T2DCollisionImage">
+      <DerivedTypes>
+        <Type>GarageGames.Torque.T2D.T2DPolyImage</Type>
+        <Type>GarageGames.Torque.T2D.T2DTileLayer+TileLayerCollisionImage</Type>
+      </DerivedTypes>
+      <IsInstantiable>false</IsInstantiable>
+    </Type>
+    <Type name="T2DCollisionMaterial" fullName="GarageGames.Torque.T2D.T2DCollisionMaterial">
+      <Element name="Restitution">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Friction">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Priority">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T2DOnCollisionDelegate" fullName="GarageGames.Torque.T2D.T2DOnCollisionDelegate">
+      <IsDelegate>true</IsDelegate>
+      <IsInstantiable>false</IsInstantiable>
+    </Type>
+    <Type name="T2DPolyImage" fullName="GarageGames.Torque.T2D.T2DPolyImage">
+      <Element name="CollisionPolyBasis">
+        <IsList>true</IsList>
+        <Type>Microsoft.Xna.Framework.Vector2</Type>
+      </Element>
+      <Element name="CollisionPolyPrimitive">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="CollisionPolyScale">
+        <Type>Microsoft.Xna.Framework.Vector2</Type>
+        <DefaultValue>1 1</DefaultValue>
+      </Element>
+    </Type>
+    <Type name="T2DResolveCollisionDelegate" fullName="GarageGames.Torque.T2D.T2DResolveCollisionDelegate">
+      <IsDelegate>true</IsDelegate>
+      <IsInstantiable>false</IsInstantiable>
+    </Type>
+    <Type name="T2DSceneObject" fullName="GarageGames.Torque.T2D.T2DSceneObject">
+      <Element name="Mounts">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.T2D.T2DSceneObject+XmlMount</Type>
+      </Element>
+      <Element name="SceneGraph">
+        <Type>GarageGames.Torque.SceneGraph.BaseSceneGraph</Type>
+      </Element>
+      <Element name="Layer">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="LayerDepth">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Size">
+        <Type>Microsoft.Xna.Framework.Vector2</Type>
+      </Element>
+      <Element name="Position">
+        <Type>Microsoft.Xna.Framework.Vector2</Type>
+      </Element>
+      <Element name="Rotation">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="SortPoint">
+        <Type>Microsoft.Xna.Framework.Vector2</Type>
+      </Element>
+      <Element name="TrackMountRotation">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="InheritMountFlip">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="InheritMountVisibility">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="MountForce">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="UseMountForce">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="CollisionsEnabled">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Visible">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="VisibilityLevel">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="FlipX">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="FlipY">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="CreateWithPhysics">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="CreateWithCollision">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="CreateWithWorldLimit">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="CreateWithLinkPoints">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Folder">
+        <Type>GarageGames.Torque.Core.TorqueFolder</Type>
+      </Element>
+      <Element name="ObjectType">
+        <Type>GarageGames.Torque.Core.TorqueObjectType</Type>
+      </Element>
+      <Element name="Pool">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="PoolWithComponents">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="IsTemplate">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="IsPersistent">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="MarkForDelete">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="OnRegistered">
+        <Type>GarageGames.Torque.Core.OnRegisteredDelegate</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T2DTestCollisionEarlyOutDelegate" fullName="GarageGames.Torque.T2D.T2DTestCollisionEarlyOutDelegate">
+      <IsDelegate>true</IsDelegate>
+      <IsInstantiable>false</IsInstantiable>
+    </Type>
+    <Type name="T2DTriggerComponentOnEnterDelegate" fullName="GarageGames.Torque.T2D.T2DTriggerComponentOnEnterDelegate">
+      <IsDelegate>true</IsDelegate>
+      <IsInstantiable>false</IsInstantiable>
+    </Type>
+    <Type name="T2DTriggerComponentOnLeaveDelegate" fullName="GarageGames.Torque.T2D.T2DTriggerComponentOnLeaveDelegate">
+      <IsDelegate>true</IsDelegate>
+      <IsInstantiable>false</IsInstantiable>
+    </Type>
+    <Type name="T2DTriggerComponentOnStayDelegate" fullName="GarageGames.Torque.T2D.T2DTriggerComponentOnStayDelegate">
+      <IsDelegate>true</IsDelegate>
+      <IsInstantiable>false</IsInstantiable>
+    </Type>
+    <Type name="T3DAnimationComponent" fullName="GarageGames.Torque.T3D.T3DAnimationComponent">
+      <IsComponent>true</IsComponent>
+      <Element name="NextSceneClient">
+        <Type>GarageGames.Torque.T3D.T3DSceneClient</Type>
+      </Element>
+      <Element name="SceneGroupName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="SceneClientName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Animations">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.T3D.Animation</Type>
+      </Element>
+    </Type>
+    <Type name="T3DBlobShadowCasterComponent" fullName="GarageGames.Torque.T3D.T3DBlobShadowCasterComponent">
+      <IsComponent>true</IsComponent>
+      <Element name="SceneContainerData">
+        <Type>GarageGames.Torque.SceneGraph.SceneContainerData</Type>
+      </Element>
+      <Element name="ShadowLength">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="ShadowRadius">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="ObjectBox">
+        <Type>GarageGames.Torque.MathUtil.Box3F</Type>
+      </Element>
+      <Element name="Transform3D">
+        <Type>GarageGames.Torque.T3D.Transform3D</Type>
+      </Element>
+      <Element name="NextSceneClient">
+        <Type>GarageGames.Torque.T3D.T3DSceneClient</Type>
+      </Element>
+      <Element name="SceneGroupName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="SceneClientName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T3DBox" fullName="GarageGames.Torque.T3D.T3DBox">
+      <IsComponent>true</IsComponent>
+      <Element name="Size">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="Material">
+        <Type>GarageGames.Torque.Materials.RenderMaterial</Type>
+      </Element>
+      <Element name="Color">
+        <Type>Microsoft.Xna.Framework.Vector4</Type>
+      </Element>
+      <Element name="IsTranslucent">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="ObjectBox">
+        <Type>GarageGames.Torque.MathUtil.Box3F</Type>
+      </Element>
+      <Element name="Transform3D">
+        <Type>GarageGames.Torque.T3D.Transform3D</Type>
+      </Element>
+      <Element name="NextSceneClient">
+        <Type>GarageGames.Torque.T3D.T3DSceneClient</Type>
+      </Element>
+      <Element name="SceneGroupName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="SceneClientName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T3DCameraComponent" fullName="GarageGames.Torque.T3D.T3DCameraComponent">
+      <IsComponent>true</IsComponent>
+      <Element name="WorldViewIndex">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="FOV">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="FarDistance">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="TransformInterfaceName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="PositionOffset">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="RotatedPositionOffset">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="RotationOffset">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="BoundaryObjectTypes">
+        <Type>GarageGames.Torque.Core.TorqueObjectType</Type>
+      </Element>
+      <Element name="RigidManager">
+        <Type>GarageGames.Torque.T3D.RigidCollision.RigidCollisionManager</Type>
+      </Element>
+      <Element name="NextSceneClient">
+        <Type>GarageGames.Torque.T3D.T3DSceneClient</Type>
+      </Element>
+      <Element name="SceneGroupName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="SceneClientName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T3DControlComponent" fullName="GarageGames.Torque.T3D.T3DControlComponent">
+      <IsComponent>true</IsComponent>
+      <Element name="CurrentState">
+        <Type>GarageGames.Torque.Util.FSMState</Type>
+      </Element>
+      <Element name="PreviousState">
+        <Type>GarageGames.Torque.Util.FSMState</Type>
+      </Element>
+      <Element name="StartState">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="NextSceneClient">
+        <Type>GarageGames.Torque.T3D.T3DSceneClient</Type>
+      </Element>
+      <Element name="SceneGroupName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="SceneClientName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="ControlStates">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.T3D.T3DControlComponent+XMLControlState</Type>
+      </Element>
+    </Type>
+    <Type name="T3DGroundControlComponent" fullName="GarageGames.Torque.T3D.T3DGroundControlComponent">
+      <IsComponent>true</IsComponent>
+      <Element name="MaximumGroundSurfaceAngle">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="GroundSurfaceCosine">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="RelativeVelocity">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="VelocityMod">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="ForceGravityOff">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="IsOnGround">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="GroundTolerance">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="GroundObjectTypes">
+        <Type>GarageGames.Torque.Core.TorqueObjectType</Type>
+      </Element>
+      <Element name="ForwardSpeed">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="StrafeSpeed">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="AirControl">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="CurrentState">
+        <Type>GarageGames.Torque.Util.FSMState</Type>
+      </Element>
+      <Element name="PreviousState">
+        <Type>GarageGames.Torque.Util.FSMState</Type>
+      </Element>
+      <Element name="StartState">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="NextSceneClient">
+        <Type>GarageGames.Torque.T3D.T3DSceneClient</Type>
+      </Element>
+      <Element name="SceneGroupName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="SceneClientName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="ControlStates">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.T3D.T3DControlComponent+XMLControlState</Type>
+      </Element>
+    </Type>
+    <Type name="T3DInputComponent" fullName="GarageGames.Torque.T3D.T3DInputComponent">
+      <IsComponent>true</IsComponent>
+      <Element name="PlayerIndex">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="NextSceneClient">
+        <Type>GarageGames.Torque.T3D.T3DSceneClient</Type>
+      </Element>
+      <Element name="SceneGroupName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="SceneClientName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T3DLightComponent" fullName="GarageGames.Torque.Lighting.T3DLightComponent">
+      <IsComponent>true</IsComponent>
+      <Element name="SceneGroupName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="LightList">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Lighting.Light</Type>
+      </Element>
+      <Element name="IsEnabled">
+        <Type>System.Boolean</Type>
+        <DefaultValue>true</DefaultValue>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T3DMountComponent" fullName="GarageGames.Torque.T3D.T3DMountComponent">
+      <IsComponent>true</IsComponent>
+      <Element name="NextSceneClient">
+        <Type>GarageGames.Torque.T3D.T3DSceneClient</Type>
+      </Element>
+      <Element name="SceneGroupName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="SceneClientName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T3DParticleData" fullName="GarageGames.Torque.T3D.T3DParticleData">
+      <Element name="DragCoefficient">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="WindCoefficient">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="GravityCoefficient">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="InheritedVelFactor">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="ConstantAccleration">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="LifeTimeMS">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="LifeTimeVarianceMS">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="SpinSpeed">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="SpinRandomMin">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="SpinRandomMax">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="UseInvAlpha">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="AnimateTexture">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="NumFrames">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="FramesPerSec">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="Times">
+        <IsList>true</IsList>
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Sizes">
+        <IsList>true</IsList>
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Colors">
+        <IsList>true</IsList>
+        <Type>Microsoft.Xna.Framework.Vector4</Type>
+      </Element>
+      <Element name="MaterialName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Material">
+        <Type>GarageGames.Torque.Materials.RenderMaterial</Type>
+      </Element>
+    </Type>
+    <Type name="T3DParticleEffectComponent" fullName="GarageGames.Torque.T3D.T3DParticleEffectComponent">
+      <IsComponent>true</IsComponent>
+      <Element name="IsEffectPlaying">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="PlayOnRegister">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="DeleteWhenFinished">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Emitters">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.T3D.T3DParticleEmitter</Type>
+      </Element>
+      <Element name="ObjectBox">
+        <Type>GarageGames.Torque.MathUtil.Box3F</Type>
+      </Element>
+      <Element name="Transform3D">
+        <Type>GarageGames.Torque.T3D.Transform3D</Type>
+      </Element>
+      <Element name="NextSceneClient">
+        <Type>GarageGames.Torque.T3D.T3DSceneClient</Type>
+      </Element>
+      <Element name="SceneGroupName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="SceneClientName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T3DParticleEmitter" fullName="GarageGames.Torque.T3D.T3DParticleEmitter">
+      <Element name="Effect">
+        <Type>GarageGames.Torque.T3D.T3DParticleEffectComponent</Type>
+      </Element>
+      <Element name="ParticleEmitterData">
+        <Type>GarageGames.Torque.T3D.T3DParticleEmitterData</Type>
+      </Element>
+      <Element name="Velocity">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="WindVelocity">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="EmitterTransform">
+        <Type>GarageGames.Torque.T3D.Transform3D</Type>
+      </Element>
+      <Element name="UseLocalTransform">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Folder">
+        <Type>GarageGames.Torque.Core.TorqueFolder</Type>
+      </Element>
+      <Element name="ObjectType">
+        <Type>GarageGames.Torque.Core.TorqueObjectType</Type>
+      </Element>
+      <Element name="Pool">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="PoolWithComponents">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="IsTemplate">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="IsPersistent">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="MarkForDelete">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="OnRegistered">
+        <Type>GarageGames.Torque.Core.OnRegisteredDelegate</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T3DParticleEmitterData" fullName="GarageGames.Torque.T3D.T3DParticleEmitterData">
+      <Element name="EjectionPeriodMS">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="PeriodVarianceMS">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="EjectionVelocity">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="VelocityVariance">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="EjectionOffset">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="ThetaMin">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="ThetaMax">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="PhiReferenceVel">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="PhiVariance">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="LifetimeMS">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="LifetimeVarianceMS">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="OrientParticles">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="OrientOnVelocity">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="UseEmitterSizes">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="UseEmitterColors">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="ParticleData">
+        <Type>GarageGames.Torque.T3D.T3DParticleData</Type>
+      </Element>
+      <Element name="ParticleListInitSize">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="InitialParticles">
+        <Type>System.Int32</Type>
+      </Element>
+    </Type>
+    <Type name="T3DPlane" fullName="GarageGames.Torque.T3D.T3DPlane">
+      <IsComponent>true</IsComponent>
+      <Element name="Tesselation">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="Width">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Height">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Material">
+        <Type>GarageGames.Torque.Materials.RenderMaterial</Type>
+      </Element>
+      <Element name="Color">
+        <Type>Microsoft.Xna.Framework.Vector4</Type>
+      </Element>
+      <Element name="IsTranslucent">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="ObjectBox">
+        <Type>GarageGames.Torque.MathUtil.Box3F</Type>
+      </Element>
+      <Element name="Transform3D">
+        <Type>GarageGames.Torque.T3D.Transform3D</Type>
+      </Element>
+      <Element name="NextSceneClient">
+        <Type>GarageGames.Torque.T3D.T3DSceneClient</Type>
+      </Element>
+      <Element name="SceneGroupName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="SceneClientName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T3DPrimitiveRenderComponent" fullName="GarageGames.Torque.T3D.T3DPrimitiveRenderComponent">
+      <IsComponent>true</IsComponent>
+      <Element name="Material">
+        <Type>GarageGames.Torque.Materials.RenderMaterial</Type>
+      </Element>
+      <Element name="Color">
+        <Type>Microsoft.Xna.Framework.Vector4</Type>
+      </Element>
+      <Element name="IsTranslucent">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="ObjectBox">
+        <Type>GarageGames.Torque.MathUtil.Box3F</Type>
+      </Element>
+      <Element name="Transform3D">
+        <Type>GarageGames.Torque.T3D.Transform3D</Type>
+      </Element>
+      <Element name="NextSceneClient">
+        <Type>GarageGames.Torque.T3D.T3DSceneClient</Type>
+      </Element>
+      <Element name="SceneGroupName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="SceneClientName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T3DRenderComponent" fullName="GarageGames.Torque.T3D.T3DRenderComponent">
+      <IsComponent>true</IsComponent>
+      <Element name="ObjectBox">
+        <Type>GarageGames.Torque.MathUtil.Box3F</Type>
+      </Element>
+      <Element name="Transform3D">
+        <Type>GarageGames.Torque.T3D.Transform3D</Type>
+      </Element>
+      <Element name="NextSceneClient">
+        <Type>GarageGames.Torque.T3D.T3DSceneClient</Type>
+      </Element>
+      <Element name="SceneGroupName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="SceneClientName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T3DRigidComponent" fullName="GarageGames.Torque.T3D.T3DRigidComponent">
+      <IsComponent>true</IsComponent>
+      <Element name="CollisionShapes">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.T3D.T3DRigidComponent+XMLCollisionShape</Type>
+      </Element>
+      <Element name="GravityScale">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Mass">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Kinetic">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Immovable">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Velocity">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="RotationScale">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="ResolveCollisions">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="OnCollision">
+        <Type>GarageGames.Torque.T3D.OnCollisionDelegate</Type>
+      </Element>
+      <Element name="CollidesWith">
+        <Type>GarageGames.Torque.Core.TorqueObjectType</Type>
+      </Element>
+      <Element name="RigidManager">
+        <Type>GarageGames.Torque.T3D.RigidCollision.RigidCollisionManager</Type>
+      </Element>
+      <Element name="AnimateCollisionOffsets">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="RenderCollisionBounds">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="RigidMaterial">
+        <Type>GarageGames.Torque.T3D.RigidCollision.RigidMaterial</Type>
+      </Element>
+      <Element name="NextSceneClient">
+        <Type>GarageGames.Torque.T3D.T3DSceneClient</Type>
+      </Element>
+      <Element name="SceneGroupName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="SceneClientName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T3DRigidConstraintComponent" fullName="GarageGames.Torque.T3D.T3DRigidConstraintComponent">
+      <IsComponent>true</IsComponent>
+      <Element name="Body1">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Body2">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="RigidConstraint">
+        <Type>GarageGames.Torque.T3D.RigidCollision.RigidConstraint</Type>
+      </Element>
+      <Element name="RigidManager">
+        <Type>GarageGames.Torque.T3D.RigidCollision.RigidCollisionManager</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T3DSceneClient" fullName="GarageGames.Torque.T3D.T3DSceneClient">
+      <IsComponent>true</IsComponent>
+      <Element name="NextSceneClient">
+        <Type>GarageGames.Torque.T3D.T3DSceneClient</Type>
+      </Element>
+      <Element name="SceneGroupName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="SceneClientName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T3DSceneComponent" fullName="GarageGames.Torque.T3D.T3DSceneComponent">
+      <IsComponent>true</IsComponent>
+      <Element name="SceneGraph">
+        <Type>GarageGames.Torque.SceneGraph.BaseSceneGraph</Type>
+      </Element>
+      <Element name="SceneGroup">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="ParentTransformName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="ObjectType">
+        <Type>GarageGames.Torque.Core.TorqueObjectType</Type>
+      </Element>
+      <Element name="UseOwnerObjectType">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="DirtyObjectBox">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="DirtyWorldBox">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="LockObjectBox">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="LockWorldBox">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="RenderObjectBounds">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Visible">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="VisibilityLevel">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Position">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="Rotation">
+        <Type>Microsoft.Xna.Framework.Quaternion</Type>
+      </Element>
+      <Element name="Scale">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="Transform">
+        <Type>Microsoft.Xna.Framework.Matrix</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="BoundsMaterial">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.Materials.RenderMaterial</Type>
+      </Element>
+      <Element name="BoundsColor">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Vector4</Type>
+      </Element>
+    </Type>
+    <Type name="T3DSolidSceneClient" fullName="GarageGames.Torque.T3D.T3DSolidSceneClient">
+      <IsComponent>true</IsComponent>
+      <Element name="ObjectBox">
+        <Type>GarageGames.Torque.MathUtil.Box3F</Type>
+      </Element>
+      <Element name="Transform3D">
+        <Type>GarageGames.Torque.T3D.Transform3D</Type>
+      </Element>
+      <Element name="NextSceneClient">
+        <Type>GarageGames.Torque.T3D.T3DSceneClient</Type>
+      </Element>
+      <Element name="SceneGroupName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="SceneClientName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T3DSpawnPointComponent" fullName="GarageGames.Torque.T3D.T3DSpawnPointComponent">
+      <IsComponent>true</IsComponent>
+      <Element name="Enabled">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="SpawnSet">
+        <Type>GarageGames.Torque.T3D.T3DSpawnSet</Type>
+      </Element>
+      <Element name="NextSceneClient">
+        <Type>GarageGames.Torque.T3D.T3DSceneClient</Type>
+      </Element>
+      <Element name="SceneGroupName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="SceneClientName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T3DSpawnSet" fullName="GarageGames.Torque.T3D.T3DSpawnSet">
+      <Element name="SpawnPointTimeout">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Folder">
+        <Type>GarageGames.Torque.Core.TorqueFolder</Type>
+      </Element>
+      <Element name="ObjectType">
+        <Type>GarageGames.Torque.Core.TorqueObjectType</Type>
+      </Element>
+      <Element name="Pool">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="PoolWithComponents">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="IsTemplate">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="IsPersistent">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="MarkForDelete">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="OnRegistered">
+        <Type>GarageGames.Torque.Core.OnRegisteredDelegate</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T3DSphere" fullName="GarageGames.Torque.T3D.T3DSphere">
+      <IsComponent>true</IsComponent>
+      <Element name="Subdivisions">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="Radius">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Material">
+        <Type>GarageGames.Torque.Materials.RenderMaterial</Type>
+      </Element>
+      <Element name="Color">
+        <Type>Microsoft.Xna.Framework.Vector4</Type>
+      </Element>
+      <Element name="IsTranslucent">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="ObjectBox">
+        <Type>GarageGames.Torque.MathUtil.Box3F</Type>
+      </Element>
+      <Element name="Transform3D">
+        <Type>GarageGames.Torque.T3D.Transform3D</Type>
+      </Element>
+      <Element name="NextSceneClient">
+        <Type>GarageGames.Torque.T3D.T3DSceneClient</Type>
+      </Element>
+      <Element name="SceneGroupName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="SceneClientName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T3DStaticGeometryComponent" fullName="GarageGames.Torque.T3D.T3DStaticGeometryComponent">
+      <IsComponent>true</IsComponent>
+      <Element name="SceneGraph">
+        <Type>GarageGames.Torque.SceneGraph.BaseSceneGraph</Type>
+      </Element>
+      <Element name="SceneGroup">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="ParentTransformName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="ObjectType">
+        <Type>GarageGames.Torque.Core.TorqueObjectType</Type>
+      </Element>
+      <Element name="UseOwnerObjectType">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="DirtyObjectBox">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="DirtyWorldBox">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="LockObjectBox">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="LockWorldBox">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="RenderObjectBounds">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Visible">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="VisibilityLevel">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Position">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="Rotation">
+        <Type>Microsoft.Xna.Framework.Quaternion</Type>
+      </Element>
+      <Element name="Scale">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="Transform">
+        <Type>Microsoft.Xna.Framework.Matrix</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T3DStaticTSRenderComponent" fullName="GarageGames.Torque.T3D.T3DStaticTSRenderComponent">
+      <IsComponent>true</IsComponent>
+      <Element name="SceneGraph">
+        <Type>GarageGames.Torque.SceneGraph.BaseSceneGraph</Type>
+      </Element>
+      <Element name="CollisionEnabled">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Position">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="SceneContainerData">
+        <Type>GarageGames.Torque.SceneGraph.SceneContainerData</Type>
+      </Element>
+      <Element name="Shape">
+        <Type>GarageGames.Torque.TS.Shape</Type>
+      </Element>
+      <Element name="ShapeName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="HiddenMeshes">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="ObjectBox">
+        <Type>GarageGames.Torque.MathUtil.Box3F</Type>
+      </Element>
+      <Element name="Transform3D">
+        <Type>GarageGames.Torque.T3D.Transform3D</Type>
+      </Element>
+      <Element name="NextSceneClient">
+        <Type>GarageGames.Torque.T3D.T3DSceneClient</Type>
+      </Element>
+      <Element name="SceneGroupName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="SceneClientName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T3DStaticXNARenderComponent" fullName="GarageGames.Torque.T3D.T3DStaticXNARenderComponent">
+      <IsComponent>true</IsComponent>
+      <Element name="SceneGraph">
+        <Type>GarageGames.Torque.SceneGraph.BaseSceneGraph</Type>
+      </Element>
+      <Element name="CollisionEnabled">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Position">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="SceneContainerData">
+        <Type>GarageGames.Torque.SceneGraph.SceneContainerData</Type>
+      </Element>
+      <Element name="Filename">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="ConvertToTorqueCoords">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="ObjectBox">
+        <Type>GarageGames.Torque.MathUtil.Box3F</Type>
+      </Element>
+      <Element name="Transform3D">
+        <Type>GarageGames.Torque.T3D.Transform3D</Type>
+      </Element>
+      <Element name="NextSceneClient">
+        <Type>GarageGames.Torque.T3D.T3DSceneClient</Type>
+      </Element>
+      <Element name="SceneGroupName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="SceneClientName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T3DTemplateSpawnPointComponent" fullName="GarageGames.Torque.T3D.T3DTemplateSpawnPointComponent">
+      <IsComponent>true</IsComponent>
+      <Element name="SpawnTemplate">
+        <Type>GarageGames.Torque.Core.TorqueObject</Type>
+      </Element>
+      <Element name="TemplateSceneGroup">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="SpawnObjectOnRegister">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Enabled">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="SpawnSet">
+        <Type>GarageGames.Torque.T3D.T3DSpawnSet</Type>
+      </Element>
+      <Element name="NextSceneClient">
+        <Type>GarageGames.Torque.T3D.T3DSceneClient</Type>
+      </Element>
+      <Element name="SceneGroupName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="SceneClientName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T3DTriggerComponent" fullName="GarageGames.Torque.T3D.T3DTriggerComponent">
+      <IsComponent>true</IsComponent>
+      <Element name="CollisionShapes">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.T3D.T3DRigidComponent+XMLCollisionShape</Type>
+      </Element>
+      <Element name="OnCollision">
+        <Type>GarageGames.Torque.T3D.OnCollisionDelegate</Type>
+      </Element>
+      <Element name="ResolveCollisions">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="OnEnter">
+        <Type>GarageGames.Torque.T3D.T3DTriggerDelegate</Type>
+      </Element>
+      <Element name="OnStay">
+        <Type>GarageGames.Torque.T3D.T3DTriggerDelegate</Type>
+      </Element>
+      <Element name="OnLeave">
+        <Type>GarageGames.Torque.T3D.T3DTriggerDelegate</Type>
+      </Element>
+      <Element name="GravityScale">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Mass">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Kinetic">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Immovable">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Velocity">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="RotationScale">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="CollidesWith">
+        <Type>GarageGames.Torque.Core.TorqueObjectType</Type>
+      </Element>
+      <Element name="RigidManager">
+        <Type>GarageGames.Torque.T3D.RigidCollision.RigidCollisionManager</Type>
+      </Element>
+      <Element name="AnimateCollisionOffsets">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="RenderCollisionBounds">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="RigidMaterial">
+        <Type>GarageGames.Torque.T3D.RigidCollision.RigidMaterial</Type>
+      </Element>
+      <Element name="NextSceneClient">
+        <Type>GarageGames.Torque.T3D.T3DSceneClient</Type>
+      </Element>
+      <Element name="SceneGroupName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="SceneClientName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T3DTriggerDelegate" fullName="GarageGames.Torque.T3D.T3DTriggerDelegate">
+      <IsDelegate>true</IsDelegate>
+      <IsInstantiable>false</IsInstantiable>
+    </Type>
+    <Type name="T3DTSRenderComponent" fullName="GarageGames.Torque.T3D.T3DTSRenderComponent">
+      <IsComponent>true</IsComponent>
+      <Element name="Shape">
+        <Type>GarageGames.Torque.TS.Shape</Type>
+      </Element>
+      <Element name="ShapeName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="HiddenMeshes">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="ObjectBox">
+        <Type>GarageGames.Torque.MathUtil.Box3F</Type>
+      </Element>
+      <Element name="Transform3D">
+        <Type>GarageGames.Torque.T3D.Transform3D</Type>
+      </Element>
+      <Element name="NextSceneClient">
+        <Type>GarageGames.Torque.T3D.T3DSceneClient</Type>
+      </Element>
+      <Element name="SceneGroupName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="SceneClientName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="T3DXNARenderComponent" fullName="GarageGames.Torque.T3D.T3DXNARenderComponent">
+      <IsComponent>true</IsComponent>
+      <Element name="Filename">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="ConvertToTorqueCoords">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="ObjectBox">
+        <Type>GarageGames.Torque.MathUtil.Box3F</Type>
+      </Element>
+      <Element name="Transform3D">
+        <Type>GarageGames.Torque.T3D.Transform3D</Type>
+      </Element>
+      <Element name="NextSceneClient">
+        <Type>GarageGames.Torque.T3D.T3DSceneClient</Type>
+      </Element>
+      <Element name="SceneGroupName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="SceneClientName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="TextureDivider" fullName="GarageGames.Torque.Materials.TextureDivider">
+      <IsInstantiable>false</IsInstantiable>
+    </Type>
+    <Type name="TileLayerCollisionImage" fullName="GarageGames.Torque.T2D.T2DTileLayer+TileLayerCollisionImage" />
+    <Type name="TorqueComponent" fullName="GarageGames.Torque.Core.TorqueComponent">
+      <DerivedTypes>
+        <Type>GarageGames.Torque.Lighting.LightComponent</Type>
+        <Type>GarageGames.Torque.Lighting.T2DLightComponent</Type>
+        <Type>GarageGames.Torque.Lighting.T3DLightComponent</Type>
+        <Type>GarageGames.Torque.T2D.T2DAnimationComponent</Type>
+        <Type>GarageGames.Torque.T2D.T2DCollisionComponent</Type>
+        <Type>GarageGames.Torque.T2D.T2DControlComponent</Type>
+        <Type>GarageGames.Torque.T2D.T2DForceComponent</Type>
+        <Type>GarageGames.Torque.T2D.T2DLinkPointComponent</Type>
+        <Type>GarageGames.Torque.T2D.T2DPhysicsComponent</Type>
+        <Type>GarageGames.Torque.T2D.T2DProcessComponent</Type>
+        <Type>GarageGames.Torque.T2D.T2DSizeAnimComponent</Type>
+        <Type>GarageGames.Torque.T2D.T2DTriggerComponent</Type>
+        <Type>GarageGames.Torque.T2D.T2DWorldLimitComponent</Type>
+        <Type>GarageGames.Torque.T3D.FreeCameraComponent</Type>
+        <Type>GarageGames.Torque.T3D.T3DAnimationComponent</Type>
+        <Type>GarageGames.Torque.T3D.T3DBlobShadowCasterComponent</Type>
+        <Type>GarageGames.Torque.T3D.T3DBox</Type>
+        <Type>GarageGames.Torque.T3D.T3DCameraComponent</Type>
+        <Type>GarageGames.Torque.T3D.T3DControlComponent</Type>
+        <Type>GarageGames.Torque.T3D.T3DGroundControlComponent</Type>
+        <Type>GarageGames.Torque.T3D.T3DInputComponent</Type>
+        <Type>GarageGames.Torque.T3D.T3DMountComponent</Type>
+        <Type>GarageGames.Torque.T3D.T3DParticleEffectComponent</Type>
+        <Type>GarageGames.Torque.T3D.T3DPlane</Type>
+        <Type>GarageGames.Torque.T3D.T3DPrimitiveRenderComponent</Type>
+        <Type>GarageGames.Torque.T3D.T3DRenderComponent</Type>
+        <Type>GarageGames.Torque.T3D.T3DRigidComponent</Type>
+        <Type>GarageGames.Torque.T3D.T3DRigidConstraintComponent</Type>
+        <Type>GarageGames.Torque.T3D.T3DSceneClient</Type>
+        <Type>GarageGames.Torque.T3D.T3DSceneComponent</Type>
+        <Type>GarageGames.Torque.T3D.T3DSolidSceneClient</Type>
+        <Type>GarageGames.Torque.T3D.T3DSpawnPointComponent</Type>
+        <Type>GarageGames.Torque.T3D.T3DSphere</Type>
+        <Type>GarageGames.Torque.T3D.T3DStaticGeometryComponent</Type>
+        <Type>GarageGames.Torque.T3D.T3DStaticTSRenderComponent</Type>
+        <Type>GarageGames.Torque.T3D.T3DStaticXNARenderComponent</Type>
+        <Type>GarageGames.Torque.T3D.T3DTemplateSpawnPointComponent</Type>
+        <Type>GarageGames.Torque.T3D.T3DTriggerComponent</Type>
+        <Type>GarageGames.Torque.T3D.T3DTSRenderComponent</Type>
+        <Type>GarageGames.Torque.T3D.T3DXNARenderComponent</Type>
+      </DerivedTypes>
+      <IsInstantiable>false</IsInstantiable>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="TorqueFolder" fullName="GarageGames.Torque.Core.TorqueFolder">
+      <Element name="Ordered">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Folder">
+        <Type>GarageGames.Torque.Core.TorqueFolder</Type>
+      </Element>
+      <Element name="ObjectType">
+        <Type>GarageGames.Torque.Core.TorqueObjectType</Type>
+      </Element>
+      <Element name="Pool">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="PoolWithComponents">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="IsTemplate">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="IsPersistent">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="MarkForDelete">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="OnRegistered">
+        <Type>GarageGames.Torque.Core.OnRegisteredDelegate</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="TorqueObject" fullName="GarageGames.Torque.Core.TorqueObject">
+      <Element name="Components">
+        <IsList>true</IsList>
+        <Type>GarageGames.Torque.Core.TorqueComponent</Type>
+      </Element>
+      <Element name="Folder">
+        <Type>GarageGames.Torque.Core.TorqueFolder</Type>
+      </Element>
+      <Element name="ObjectType">
+        <Type>GarageGames.Torque.Core.TorqueObjectType</Type>
+      </Element>
+      <Element name="Pool">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="PoolWithComponents">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="IsTemplate">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="IsPersistent">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="MarkForDelete">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="OnRegistered">
+        <Type>GarageGames.Torque.Core.OnRegisteredDelegate</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="TorqueObjectType" fullName="GarageGames.Torque.Core.TorqueObjectType">
+      <Element name="AllObjects">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.Core.TorqueObjectType</Type>
+      </Element>
+      <Element name="NoObjects">
+        <IsStatic>true</IsStatic>
+        <Type>GarageGames.Torque.Core.TorqueObjectType</Type>
+      </Element>
+    </Type>
+    <Type name="Transform3D" fullName="GarageGames.Torque.T3D.Transform3D">
+      <IsInstantiable>false</IsInstantiable>
+      <Element name="ParentTransform">
+        <Type>GarageGames.Torque.T3D.Transform3D</Type>
+      </Element>
+      <Element name="DirtyListener">
+        <Type>GarageGames.Torque.T3D.Transform3D+IDirtyListener</Type>
+      </Element>
+      <Element name="WorldMatrix">
+        <Type>Microsoft.Xna.Framework.Matrix</Type>
+      </Element>
+      <Element name="ObjectMatrix">
+        <Type>Microsoft.Xna.Framework.Matrix</Type>
+      </Element>
+      <Element name="LocalMatrix">
+        <Type>Microsoft.Xna.Framework.Matrix</Type>
+      </Element>
+      <Element name="Position">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="Rotation">
+        <Type>Microsoft.Xna.Framework.Quaternion</Type>
+      </Element>
+      <Element name="Scale">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+    </Type>
+    <Type name="Trigger" fullName="GarageGames.Torque.TS.Trigger">
+      <Element name="State">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="Pos">
+        <Type>System.Single</Type>
+      </Element>
+    </Type>
+    <Type name="TriggerProcessor" fullName="GarageGames.Torque.T2D.T2DProcessComponent+TriggerProcessor">
+      <Element name="TriggerIndex">
+        <Type>System.Int32</Type>
+      </Element>
+      <Element name="InterfaceName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="MinValue">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MaxValue">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MinSpeed">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="MaxSpeed">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="InvertInput">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Cycle">
+        <Type>System.Boolean</Type>
+      </Element>
+      <Element name="Mode">
+        <Type>GarageGames.Torque.T2D.T2DProcessComponent+Processor+ProcessMode</Type>
+      </Element>
+    </Type>
+    <Type name="TSAnimation" fullName="GarageGames.Torque.T3D.TSAnimation">
+      <Element name="ThreadName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="SequenceFilename">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="SequenceName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="TimeScale">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="TSTrackAnimation" fullName="GarageGames.Torque.T3D.TSTrackAnimation">
+      <Element name="ThreadName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="SequenceFilename">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="SequenceName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="TrackInterfaceName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="TimeScale">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="UInt16" fullName="System.UInt16">
+      <Element name="MaxValue">
+        <IsStatic>true</IsStatic>
+        <Type>System.UInt16</Type>
+      </Element>
+      <Element name="MinValue">
+        <IsStatic>true</IsStatic>
+        <Type>System.UInt16</Type>
+      </Element>
+    </Type>
+    <Type name="UInt32" fullName="System.UInt32">
+      <Element name="MaxValue">
+        <IsStatic>true</IsStatic>
+        <Type>System.UInt32</Type>
+      </Element>
+      <Element name="MinValue">
+        <IsStatic>true</IsStatic>
+        <Type>System.UInt32</Type>
+      </Element>
+    </Type>
+    <Type name="ValueAnimation`1" fullName="ValueAnimation`1_Of_">
+      <Element name="TimeScale">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+    <Type name="Vector2" fullName="Microsoft.Xna.Framework.Vector2">
+      <Element name="X">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Y">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Zero">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Vector2</Type>
+      </Element>
+      <Element name="One">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Vector2</Type>
+      </Element>
+      <Element name="UnitX">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Vector2</Type>
+      </Element>
+      <Element name="UnitY">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Vector2</Type>
+      </Element>
+    </Type>
+    <Type name="Vector3" fullName="Microsoft.Xna.Framework.Vector3">
+      <Element name="X">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Y">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Z">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Zero">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="One">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="UnitX">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="UnitY">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="UnitZ">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="Up">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="Down">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="Right">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="Left">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="Forward">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="Backward">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+    </Type>
+    <Type name="Vector4" fullName="Microsoft.Xna.Framework.Vector4">
+      <Element name="X">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Y">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Z">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="W">
+        <Type>System.Single</Type>
+      </Element>
+      <Element name="Zero">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Vector4</Type>
+      </Element>
+      <Element name="One">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Vector4</Type>
+      </Element>
+      <Element name="UnitX">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Vector4</Type>
+      </Element>
+      <Element name="UnitY">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Vector4</Type>
+      </Element>
+      <Element name="UnitZ">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Vector4</Type>
+      </Element>
+      <Element name="UnitW">
+        <IsStatic>true</IsStatic>
+        <Type>Microsoft.Xna.Framework.Vector4</Type>
+      </Element>
+    </Type>
+    <Type name="XMLAnimation" fullName="GarageGames.Torque.T3D.AnimationFSM+XMLAnimation">
+      <Element name="StateType">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Animation">
+        <Type>GarageGames.Torque.T3D.Animation</Type>
+      </Element>
+    </Type>
+    <Type name="XMLCollisionShape" fullName="GarageGames.Torque.T3D.T3DRigidComponent+XMLCollisionShape">
+      <Element name="Shape">
+        <Type>GarageGames.Torque.T3D.RigidCollision.CollisionShape</Type>
+      </Element>
+      <Element name="TransformName">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Position">
+        <Type>Microsoft.Xna.Framework.Vector3</Type>
+      </Element>
+      <Element name="Rotation">
+        <Type>Microsoft.Xna.Framework.Quaternion</Type>
+      </Element>
+    </Type>
+    <Type name="XMLControlState" fullName="GarageGames.Torque.T3D.T3DControlComponent+XMLControlState">
+      <Element name="Name">
+        <Type>System.String</Type>
+      </Element>
+      <Element name="Type">
+        <Type>System.String</Type>
+      </Element>
+    </Type>
+  </ReferencedTypes>
+</TorqueSchema>

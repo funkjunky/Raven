@@ -1,0 +1,2291 @@
+Signature = XACT2;
+Version = 13;
+
+Options
+{
+    Cue List File = C:\Dave\TGEProjects\TorqueX\trunk\StarterKits\TorqueCombat\data\sounds\XACTCues.txt;
+}
+
+Global Settings
+{
+    Xbox File = .\Sounds.xgs;
+    Windows File = .\Sounds.xgs;
+    Header File = Sounds.h;
+    Exclude Category Names = 0;
+    Exclude Variable Names = 0;
+    Last Modified Low = 3100135126;
+    Last Modified High = 29823769;
+
+    Category
+    {
+        Name = Global;
+        Public = 1;
+        Background Music = 0;
+        Volume = 0;
+
+        Category Entry
+        {
+        }
+
+        Instance Limit
+        {
+            Max Instances = 255;
+            Behavior = 0;
+
+            Crossfade
+            {
+                Fade In = 0;
+                Fade Out = 0;
+                Crossfade Type = 0;
+            }
+        }
+    }
+
+    Category
+    {
+        Name = Default;
+        Public = 1;
+        Background Music = 0;
+        Volume = 0;
+
+        Category Entry
+        {
+            Name = Global;
+        }
+
+        Instance Limit
+        {
+            Max Instances = 255;
+            Behavior = 0;
+
+            Crossfade
+            {
+                Fade In = 0;
+                Fade Out = 0;
+                Crossfade Type = 0;
+            }
+        }
+    }
+
+    Category
+    {
+        Name = Music;
+        Public = 1;
+        Background Music = 1;
+        Volume = 0;
+
+        Category Entry
+        {
+            Name = Global;
+        }
+
+        Instance Limit
+        {
+            Max Instances = 255;
+            Behavior = 0;
+
+            Crossfade
+            {
+                Fade In = 0;
+                Fade Out = 0;
+                Crossfade Type = 0;
+            }
+        }
+    }
+
+    Variable
+    {
+        Name = OrientationAngle;
+        Public = 1;
+        Global = 0;
+        Internal = 0;
+        External = 0;
+        Monitored = 1;
+        Reserved = 1;
+        Read Only = 0;
+        Time = 0;
+        Value = 0.000000;
+        Initial Value = 0.000000;
+        Min = -180.000000;
+        Max = 180.000000;
+    }
+
+    Variable
+    {
+        Name = DopplerPitchScalar;
+        Public = 1;
+        Global = 0;
+        Internal = 0;
+        External = 0;
+        Monitored = 1;
+        Reserved = 1;
+        Read Only = 0;
+        Time = 0;
+        Value = 1.000000;
+        Initial Value = 1.000000;
+        Min = 0.000000;
+        Max = 4.000000;
+    }
+
+    Variable
+    {
+        Name = SpeedOfSound;
+        Public = 1;
+        Global = 1;
+        Internal = 0;
+        External = 0;
+        Monitored = 1;
+        Reserved = 1;
+        Read Only = 0;
+        Time = 0;
+        Value = 343.500000;
+        Initial Value = 343.500000;
+        Min = 0.000000;
+        Max = 1000000.000000;
+    }
+
+    Variable
+    {
+        Name = ReleaseTime;
+        Public = 1;
+        Global = 0;
+        Internal = 1;
+        External = 1;
+        Monitored = 1;
+        Reserved = 1;
+        Read Only = 1;
+        Time = 1;
+        Value = 0.000000;
+        Initial Value = 0.000000;
+        Min = 0.000000;
+        Max = 15.000000;
+    }
+
+    Variable
+    {
+        Name = AttackTime;
+        Public = 1;
+        Global = 0;
+        Internal = 1;
+        External = 1;
+        Monitored = 1;
+        Reserved = 1;
+        Read Only = 1;
+        Time = 1;
+        Value = 0.000000;
+        Initial Value = 0.000000;
+        Min = 0.000000;
+        Max = 15.000000;
+    }
+
+    Variable
+    {
+        Name = NumCueInstances;
+        Public = 1;
+        Global = 0;
+        Internal = 1;
+        External = 1;
+        Monitored = 1;
+        Reserved = 1;
+        Read Only = 1;
+        Time = 0;
+        Value = 0.000000;
+        Initial Value = 0.000000;
+        Min = 0.000000;
+        Max = 1024.000000;
+    }
+
+    Variable
+    {
+        Name = Distance;
+        Public = 1;
+        Global = 0;
+        Internal = 0;
+        External = 0;
+        Monitored = 1;
+        Reserved = 1;
+        Read Only = 0;
+        Time = 0;
+        Value = 0.000000;
+        Initial Value = 0.000000;
+        Min = 0.000000;
+        Max = 1000000.000000;
+    }
+
+    Variable
+    {
+        Name = EngineSpeed;
+        Public = 1;
+        Global = 0;
+        Internal = 0;
+        External = 0;
+        Monitored = 1;
+        Reserved = 0;
+        Read Only = 0;
+        Time = 0;
+        Value = 0.000000;
+        Initial Value = 0.000000;
+        Min = 0.000000;
+        Max = 100.000000;
+    }
+
+    Variable
+    {
+        Name = AngularSpeed;
+        Public = 1;
+        Global = 0;
+        Internal = 0;
+        External = 0;
+        Monitored = 1;
+        Reserved = 0;
+        Read Only = 0;
+        Time = 0;
+        Value = 0.000000;
+        Initial Value = 0.000000;
+        Min = 0.000000;
+        Max = 100.000000;
+    }
+
+    Variable
+    {
+        Name = EngineIdleVolume;
+        Public = 1;
+        Global = 1;
+        Internal = 0;
+        External = 0;
+        Monitored = 1;
+        Reserved = 0;
+        Read Only = 0;
+        Time = 0;
+        Value = 100.000000;
+        Initial Value = 0.000000;
+        Min = 0.000000;
+        Max = 100.000000;
+    }
+
+    RPC
+    {
+        Name = EngineSpeedRPC;
+
+        RPC Curve
+        {
+            Name = 2::9b0e7e66-e6f1-40aa-b4a9-92ad26f1c643;
+            Property = 0;
+            Sound = 0;
+            Viewable = 1;
+
+            Variable Entry
+            {
+                Name = EngineSpeed;
+            }
+
+            RPC Point
+            {
+                X = 0.000000;
+                Y = -9600.000000;
+                Curve = 0;
+            }
+
+            RPC Point
+            {
+                X = 1.359517;
+                Y = -1373.341064;
+                Curve = 0;
+            }
+
+            RPC Point
+            {
+                X = 53.032928;
+                Y = 1.783905;
+                Curve = 0;
+            }
+        }
+
+        RPC Curve
+        {
+            Name = 2::f2e86183-69ff-4607-a8dd-2f546ad72aa0;
+            Property = 1;
+            Sound = 0;
+            Line Color = 4294901760;
+            Viewable = 1;
+
+            Variable Entry
+            {
+                Name = EngineSpeed;
+            }
+
+            RPC Point
+            {
+                X = 0.000000;
+                Y = 0.000000;
+                Curve = 0;
+            }
+
+            RPC Point
+            {
+                X = 68.126892;
+                Y = 656.905151;
+                Curve = 0;
+            }
+
+            RPC Point
+            {
+                X = 100.000000;
+                Y = 804.658875;
+                Curve = 0;
+            }
+        }
+
+        RPC Curve
+        {
+            Name = 3::8b1a530d-1cdb-40ce-856a-16006e1bda06;
+            Property = 0;
+            Sound = 0;
+            Line Color = 4278255360;
+            Viewable = 1;
+
+            Variable Entry
+            {
+                Name = AngularSpeed;
+            }
+
+            RPC Point
+            {
+                X = 0.000000;
+                Y = -9600.000000;
+                Curve = 0;
+            }
+
+            RPC Point
+            {
+                X = 1.435045;
+                Y = -1373.341064;
+                Curve = 0;
+            }
+
+            RPC Point
+            {
+                X = 52.512997;
+                Y = 1.783905;
+                Curve = 0;
+            }
+        }
+
+        RPC Curve
+        {
+            Name = 3::99a5da8b-4453-44f8-951a-47221daa9dd1;
+            Property = 1;
+            Sound = 0;
+            Line Color = 4278222848;
+            Viewable = 1;
+
+            Variable Entry
+            {
+                Name = AngularSpeed;
+            }
+
+            RPC Point
+            {
+                X = 0.000000;
+                Y = 0.000000;
+                Curve = 0;
+            }
+
+            RPC Point
+            {
+                X = 100.000000;
+                Y = 656.905151;
+                Curve = 0;
+            }
+        }
+
+        RPC Curve
+        {
+            Name = 1::5b6311bd-2440-4c89-b6b7-89130a6ba178;
+            Property = 0;
+            Sound = 0;
+            Line Color = 4294934592;
+            Viewable = 1;
+
+            Variable Entry
+            {
+                Name = EngineIdleVolume;
+            }
+
+            RPC Point
+            {
+                X = 0.000000;
+                Y = -9600.000000;
+                Curve = 0;
+            }
+
+            RPC Point
+            {
+                X = 100.000000;
+                Y = 486.138092;
+                Curve = 0;
+            }
+        }
+
+        RPC Curve
+        {
+            Name = 1::eec98a18-7906-4cf4-952e-8efd8dac6ec5;
+            Property = 1;
+            Sound = 0;
+            Viewable = 1;
+
+            Variable Entry
+            {
+                Name = EngineSpeed;
+            }
+
+            RPC Point
+            {
+                X = 0.000000;
+                Y = 0.000000;
+                Curve = 0;
+            }
+
+            RPC Point
+            {
+                X = 58.383686;
+                Y = -121.797089;
+                Curve = 0;
+            }
+
+            RPC Point
+            {
+                X = 100.000000;
+                Y = -668.885315;
+                Curve = 0;
+            }
+        }
+    }
+
+    RPC
+    {
+        Name = MusicFadeOut;
+
+        RPC Curve
+        {
+            Name = 1::e16af437-8b4d-410c-8b9c-439eb6c78bdd;
+            Property = 0;
+            Sound = 0;
+            Viewable = 1;
+
+            Variable Entry
+            {
+                Name = ReleaseTime;
+            }
+
+            RPC Point
+            {
+                X = 0.000000;
+                Y = 0.000000;
+                Curve = 0;
+            }
+
+            RPC Point
+            {
+                X = 1.429809;
+                Y = -578.090332;
+                Curve = 0;
+            }
+
+            RPC Point
+            {
+                X = 2.963605;
+                Y = -9600.000000;
+                Curve = 0;
+            }
+        }
+
+        RPC Curve
+        {
+            Name = 1::237a9cab-9622-4c98-92cb-2b3e89d3556f;
+            Property = 0;
+            Sound = 0;
+            Line Color = 4294901760;
+            Viewable = 1;
+
+            Variable Entry
+            {
+                Name = AttackTime;
+            }
+
+            RPC Point
+            {
+                X = 0.000000;
+                Y = -9600.000000;
+                Curve = 0;
+            }
+
+            RPC Point
+            {
+                X = 1.351820;
+                Y = -666.773865;
+                Curve = 0;
+            }
+
+            RPC Point
+            {
+                X = 3.041595;
+                Y = 1.783905;
+                Curve = 0;
+            }
+
+            RPC Point
+            {
+                X = 15.000000;
+                Y = 0.000000;
+                Curve = 0;
+            }
+        }
+    }
+
+    RPC
+    {
+        Name = TankShellWhistleFade;
+
+        RPC Curve
+        {
+            Name = 1::c21c98e8-f324-4a00-a129-b6c643ce5fce;
+            Property = 0;
+            Sound = 0;
+            Viewable = 1;
+
+            Variable Entry
+            {
+                Name = ReleaseTime;
+            }
+
+            RPC Point
+            {
+                X = 0.000000;
+                Y = 0.000000;
+                Curve = 0;
+            }
+
+            RPC Point
+            {
+                X = 2.001733;
+                Y = -9600.000000;
+                Curve = 0;
+            }
+        }
+    }
+
+    RPC
+    {
+        Name = EngineFadeOut;
+
+        RPC Curve
+        {
+            Name = 1::e3ad7228-8721-4abe-b5fc-77d41cea3f4d;
+            Property = 0;
+            Sound = 0;
+            Viewable = 1;
+
+            Variable Entry
+            {
+                Name = AttackTime;
+            }
+
+            RPC Point
+            {
+                X = 0.000000;
+                Y = -1166.035156;
+                Curve = 0;
+            }
+
+            RPC Point
+            {
+                X = 1.507799;
+                Y = 1.783905;
+                Curve = 0;
+            }
+
+            RPC Point
+            {
+                X = 15.000000;
+                Y = 0.000000;
+                Curve = 0;
+            }
+        }
+
+        RPC Curve
+        {
+            Name = 2::3d26ef74-5b6c-461b-b79a-b08dbef9626f;
+            Property = 0;
+            Sound = 0;
+            Line Color = 4294901760;
+            Viewable = 1;
+
+            Variable Entry
+            {
+                Name = AttackTime;
+            }
+
+            RPC Point
+            {
+                X = 0.000000;
+                Y = -1215.030151;
+                Curve = 0;
+            }
+
+            RPC Point
+            {
+                X = 1.507799;
+                Y = 1.783905;
+                Curve = 0;
+            }
+
+            RPC Point
+            {
+                X = 15.000000;
+                Y = 0.000000;
+                Curve = 0;
+            }
+        }
+
+        RPC Curve
+        {
+            Name = 3::36aed1ac-9e48-4813-bd2e-175580d574b7;
+            Property = 0;
+            Sound = 0;
+            Line Color = 4294934528;
+            Viewable = 1;
+
+            Variable Entry
+            {
+                Name = AttackTime;
+            }
+
+            RPC Point
+            {
+                X = 0.000000;
+                Y = -1215.030151;
+                Curve = 0;
+            }
+
+            RPC Point
+            {
+                X = 1.507799;
+                Y = 1.783905;
+                Curve = 0;
+            }
+
+            RPC Point
+            {
+                X = 15.000000;
+                Y = 0.000000;
+                Curve = 0;
+            }
+        }
+
+        RPC Curve
+        {
+            Name = 1::ed7d0f3d-cd8a-4867-9463-bdf82ab4bb57;
+            Property = 0;
+            Sound = 0;
+            Line Color = 4278222976;
+            Viewable = 1;
+
+            Variable Entry
+            {
+                Name = ReleaseTime;
+            }
+
+            RPC Point
+            {
+                X = 0.000000;
+                Y = 0.000000;
+                Curve = 0;
+            }
+
+            RPC Point
+            {
+                X = 7.019064;
+                Y = -9600.000000;
+                Curve = 0;
+            }
+        }
+
+        RPC Curve
+        {
+            Name = 2::4b45e7de-3292-4e7d-b1d7-6129caec846c;
+            Property = 0;
+            Sound = 0;
+            Line Color = 4278190335;
+            Viewable = 1;
+
+            Variable Entry
+            {
+                Name = ReleaseTime;
+            }
+
+            RPC Point
+            {
+                X = 0.000000;
+                Y = 0.000000;
+                Curve = 0;
+            }
+
+            RPC Point
+            {
+                X = 7.019064;
+                Y = -9600.000000;
+                Curve = 0;
+            }
+        }
+
+        RPC Curve
+        {
+            Name = 3::7eaf7f89-5270-41f9-8654-eeb73842ad64;
+            Property = 0;
+            Sound = 0;
+            Line Color = 4286578816;
+            Viewable = 1;
+
+            Variable Entry
+            {
+                Name = ReleaseTime;
+            }
+
+            RPC Point
+            {
+                X = 0.000000;
+                Y = 0.000000;
+                Curve = 0;
+            }
+
+            RPC Point
+            {
+                X = 7.019064;
+                Y = -9600.000000;
+                Curve = 0;
+            }
+        }
+    }
+}
+
+Wave Bank
+{
+    Name = Wave Bank;
+    Xbox File = Xbox\Sounds.xwb;
+    Windows File = Win\Sounds.xwb;
+    Seek Tables = 1;
+    Compression Preset Name = <none>;
+
+    Wave
+    {
+        Name = tank_fire;
+        File = tank_fire.wav;
+        Build Settings Last Modified Low = 3601178008;
+        Build Settings Last Modified High = 29823777;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 22050;
+            Bits Per Sample = 1;
+            Play Region Offset = 44;
+            Play Region Length = 35722;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 133623604;
+            Last Modified High = 29823976;
+        }
+    }
+
+    Wave
+    {
+        Name = barrier_collide2;
+        File = barrier_collide2.wav;
+        Build Settings Last Modified Low = 3601178008;
+        Build Settings Last Modified High = 29823777;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 22050;
+            Bits Per Sample = 1;
+            Play Region Offset = 44;
+            Play Region Length = 14388;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 56592354;
+            Last Modified High = 29823976;
+        }
+    }
+
+    Wave
+    {
+        Name = barrier_collide;
+        File = barrier_collide.wav;
+        Build Settings Last Modified Low = 3601178008;
+        Build Settings Last Modified High = 29823777;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 22050;
+            Bits Per Sample = 1;
+            Play Region Offset = 44;
+            Play Region Length = 15560;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 4293122150;
+            Last Modified High = 29823975;
+        }
+    }
+
+    Wave
+    {
+        Name = tank_moving_loop_c;
+        File = tank_moving_loop_c.wav;
+        Build Settings Last Modified Low = 3601178008;
+        Build Settings Last Modified High = 29823777;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 22050;
+            Bits Per Sample = 1;
+            Play Region Offset = 136;
+            Play Region Length = 132602;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 189092354;
+            Last Modified High = 29823976;
+        }
+    }
+
+    Wave
+    {
+        Name = tank_moving_loop;
+        File = tank_moving_loop.wav;
+        Build Settings Last Modified Low = 3601178008;
+        Build Settings Last Modified High = 29823777;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 22050;
+            Bits Per Sample = 1;
+            Play Region Offset = 136;
+            Play Region Length = 146022;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 2245538468;
+            Last Modified High = 29823767;
+        }
+    }
+
+    Wave
+    {
+        Name = tank_moving_loop_b;
+        File = tank_moving_loop_b.wav;
+        Build Settings Last Modified Low = 3601178008;
+        Build Settings Last Modified High = 29823777;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 22050;
+            Bits Per Sample = 1;
+            Play Region Offset = 136;
+            Play Region Length = 145138;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 2283507218;
+            Last Modified High = 29823767;
+        }
+    }
+
+    Wave
+    {
+        Name = mouseOver;
+        File = mouseOver.wav;
+        Build Settings Last Modified Low = 1297544328;
+        Build Settings Last Modified High = 29823857;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 22050;
+            Bits Per Sample = 1;
+            Play Region Offset = 44;
+            Play Region Length = 2618;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 1343659680;
+            Last Modified High = 29592045;
+        }
+    }
+
+    Wave
+    {
+        Name = mouseDown;
+        File = mouseDown.wav;
+        Build Settings Last Modified Low = 1297700578;
+        Build Settings Last Modified High = 29823857;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 22050;
+            Bits Per Sample = 1;
+            Play Region Offset = 44;
+            Play Region Length = 1720;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 1818503430;
+            Last Modified High = 29592045;
+        }
+    }
+
+    Wave
+    {
+        Name = barrier_collide3;
+        File = barrier_collide3.wav;
+        Build Settings Last Modified Low = 3301123604;
+        Build Settings Last Modified High = 29823976;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 22050;
+            Bits Per Sample = 1;
+            Play Region Offset = 44;
+            Play Region Length = 8262;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 4119372150;
+            Last Modified High = 29823975;
+        }
+    }
+
+    Wave
+    {
+        Name = bomb_explo_1a;
+        File = bomb_explo_1a.wav;
+        Build Settings Last Modified Low = 3301123604;
+        Build Settings Last Modified High = 29823976;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 22050;
+            Bits Per Sample = 1;
+            Play Region Offset = 44;
+            Play Region Length = 56738;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 4177653400;
+            Last Modified High = 29823975;
+        }
+    }
+
+    Wave
+    {
+        Name = bomb_explo_1b;
+        File = bomb_explo_1b.wav;
+        Build Settings Last Modified Low = 3301123604;
+        Build Settings Last Modified High = 29823976;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 22050;
+            Bits Per Sample = 1;
+            Play Region Offset = 44;
+            Play Region Length = 39336;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 4214059650;
+            Last Modified High = 29823975;
+        }
+    }
+
+    Wave
+    {
+        Name = bomb_whistle;
+        File = bomb_whistle.wav;
+        Build Settings Last Modified Low = 3301123604;
+        Build Settings Last Modified High = 29823976;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 22050;
+            Bits Per Sample = 1;
+            Play Region Offset = 44;
+            Play Region Length = 59628;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 4250934650;
+            Last Modified High = 29823975;
+        }
+    }
+
+    Wave
+    {
+        Name = TankTune_1;
+        File = TankTune_1.wav;
+        Build Settings Last Modified Low = 2148591846;
+        Build Settings Last Modified High = 29825824;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 2;
+            Sampling Rate = 22050;
+            Bits Per Sample = 1;
+            Play Region Offset = 136;
+            Play Region Length = 4558224;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 1248435596;
+            Last Modified High = 29825824;
+        }
+    }
+}
+
+Sound Bank
+{
+    Name = Sound Bank;
+    Xbox File = Xbox\Sounds.xsb;
+    Windows File = Win\Sounds.xsb;
+    Header Last Modified High = 0;
+    Header Last Modified Low = 0;
+
+    Sound
+    {
+        Name = tank_fire;
+        Volume = -1200;
+        Pitch = 0;
+        Priority = 0;
+
+        Category Entry
+        {
+            Name = Default;
+        }
+
+        Track
+        {
+            Volume = 0;
+
+            Play Wave Event
+            {
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaer Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Pitch Variation
+                {
+                    Min = -200;
+                    Max = 200;
+                    Operator = 0;
+                    New Variation On Loop = 1;
+                }
+
+                Volume Variation
+                {
+                    Min = -200;
+                    Max = 200;
+                    Volume = 0;
+                    New Variation On Loop = 1;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = Wave Bank;
+                    Bank Index = 0;
+                    Entry Name = tank_fire;
+                    Entry Index = 0;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+            }
+        }
+
+        Track
+        {
+            Volume = 0;
+
+            Play Wave Event
+            {
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaer Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Pitch Variation
+                {
+                    Min = -200;
+                    Max = 0;
+                    Operator = 0;
+                    New Variation On Loop = 1;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = Wave Bank;
+                    Bank Index = 0;
+                    Entry Name = bomb_explo_1b;
+                    Entry Index = 10;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+            }
+        }
+    }
+
+    Sound
+    {
+        Name = barrier_collide;
+        Volume = -1200;
+        Pitch = 0;
+        Priority = 0;
+
+        Category Entry
+        {
+            Name = Default;
+        }
+
+        Track
+        {
+            Volume = 0;
+
+            Play Wave Event
+            {
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaer Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Pitch Variation
+                {
+                    Min = -150;
+                    Max = 150;
+                    Operator = 0;
+                    New Variation On Loop = 1;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = Wave Bank;
+                    Bank Index = 0;
+                    Entry Name = barrier_collide;
+                    Entry Index = 2;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+            }
+        }
+    }
+
+    Sound
+    {
+        Name = barrier_collide2;
+        Volume = -1200;
+        Pitch = 0;
+        Priority = 0;
+
+        Category Entry
+        {
+            Name = Default;
+        }
+
+        Track
+        {
+            Volume = 0;
+
+            Play Wave Event
+            {
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaer Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Pitch Variation
+                {
+                    Min = -200;
+                    Max = 200;
+                    Operator = 0;
+                    New Variation On Loop = 1;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = Wave Bank;
+                    Bank Index = 0;
+                    Entry Name = barrier_collide2;
+                    Entry Index = 1;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+            }
+        }
+    }
+
+    Sound
+    {
+        Name = tankEngine;
+        Volume = -1200;
+        Pitch = 0;
+        Priority = 0;
+
+        Category Entry
+        {
+            Name = Default;
+        }
+
+        RPC Entry
+        {
+            RPC Name = EngineSpeedRPC;
+        }
+
+        RPC Entry
+        {
+            RPC Name = EngineFadeOut;
+        }
+
+        Track
+        {
+            Volume = 0;
+
+            Play Wave Event
+            {
+                Loop Count = 255;
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaer Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Pitch Variation
+                {
+                    Min = -500;
+                    Max = 500;
+                    Operator = 0;
+                    New Variation On Loop = 0;
+                }
+
+                Volume Variation
+                {
+                    Min = -1300;
+                    Max = -1100;
+                    Volume = 0;
+                    New Variation On Loop = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = Wave Bank;
+                    Bank Index = 0;
+                    Entry Name = tank_moving_loop;
+                    Entry Index = 4;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+            }
+
+            RPC Curve Entry
+            {
+                RPC Name = EngineSpeedRPC;
+                RPC Curve Name = 1::5b6311bd-2440-4c89-b6b7-89130a6ba178;
+            }
+
+            RPC Curve Entry
+            {
+                RPC Name = EngineSpeedRPC;
+                RPC Curve Name = 1::eec98a18-7906-4cf4-952e-8efd8dac6ec5;
+            }
+
+            RPC Curve Entry
+            {
+                RPC Name = EngineFadeOut;
+                RPC Curve Name = 1::e3ad7228-8721-4abe-b5fc-77d41cea3f4d;
+            }
+
+            RPC Curve Entry
+            {
+                RPC Name = EngineFadeOut;
+                RPC Curve Name = 1::ed7d0f3d-cd8a-4867-9463-bdf82ab4bb57;
+            }
+        }
+
+        Track
+        {
+            Volume = 0;
+
+            Play Wave Event
+            {
+                Loop Count = 255;
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaer Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Volume Variation
+                {
+                    Min = 0;
+                    Max = 0;
+                    Volume = 0;
+                    New Variation On Loop = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = Wave Bank;
+                    Bank Index = 0;
+                    Entry Name = tank_moving_loop_b;
+                    Entry Index = 5;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+            }
+
+            RPC Curve Entry
+            {
+                RPC Name = EngineSpeedRPC;
+                RPC Curve Name = 2::9b0e7e66-e6f1-40aa-b4a9-92ad26f1c643;
+            }
+
+            RPC Curve Entry
+            {
+                RPC Name = EngineSpeedRPC;
+                RPC Curve Name = 2::f2e86183-69ff-4607-a8dd-2f546ad72aa0;
+            }
+
+            RPC Curve Entry
+            {
+                RPC Name = EngineFadeOut;
+                RPC Curve Name = 2::3d26ef74-5b6c-461b-b79a-b08dbef9626f;
+            }
+
+            RPC Curve Entry
+            {
+                RPC Name = EngineFadeOut;
+                RPC Curve Name = 2::4b45e7de-3292-4e7d-b1d7-6129caec846c;
+            }
+        }
+
+        Track
+        {
+            Volume = 0;
+
+            Play Wave Event
+            {
+                Loop Count = 255;
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaer Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Volume Variation
+                {
+                    Min = 0;
+                    Max = 0;
+                    Volume = 0;
+                    New Variation On Loop = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = Wave Bank;
+                    Bank Index = 0;
+                    Entry Name = tank_moving_loop_c;
+                    Entry Index = 3;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+            }
+
+            RPC Curve Entry
+            {
+                RPC Name = EngineSpeedRPC;
+                RPC Curve Name = 3::8b1a530d-1cdb-40ce-856a-16006e1bda06;
+            }
+
+            RPC Curve Entry
+            {
+                RPC Name = EngineSpeedRPC;
+                RPC Curve Name = 3::99a5da8b-4453-44f8-951a-47221daa9dd1;
+            }
+
+            RPC Curve Entry
+            {
+                RPC Name = EngineFadeOut;
+                RPC Curve Name = 3::36aed1ac-9e48-4813-bd2e-175580d574b7;
+            }
+
+            RPC Curve Entry
+            {
+                RPC Name = EngineFadeOut;
+                RPC Curve Name = 3::7eaf7f89-5270-41f9-8654-eeb73842ad64;
+            }
+        }
+    }
+
+    Sound
+    {
+        Name = mouseOver;
+        Volume = -300;
+        Pitch = 0;
+        Priority = 0;
+
+        Category Entry
+        {
+            Name = Default;
+        }
+
+        Track
+        {
+            Volume = 0;
+
+            Play Wave Event
+            {
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaer Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = Wave Bank;
+                    Bank Index = 0;
+                    Entry Name = mouseOver;
+                    Entry Index = 6;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+            }
+        }
+    }
+
+    Sound
+    {
+        Name = mouseDown;
+        Volume = -1000;
+        Pitch = 0;
+        Priority = 0;
+
+        Category Entry
+        {
+            Name = Default;
+        }
+
+        Track
+        {
+            Volume = 0;
+
+            Play Wave Event
+            {
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaer Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = Wave Bank;
+                    Bank Index = 0;
+                    Entry Name = mouseDown;
+                    Entry Index = 7;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+            }
+        }
+    }
+
+    Sound
+    {
+        Name = explodeTank1;
+        Volume = -900;
+        Pitch = 0;
+        Priority = 0;
+
+        Category Entry
+        {
+            Name = Default;
+        }
+
+        Track
+        {
+            Volume = 0;
+
+            Play Wave Event
+            {
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaer Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Pitch Variation
+                {
+                    Min = -600;
+                    Max = 0;
+                    Operator = 0;
+                    New Variation On Loop = 1;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = Wave Bank;
+                    Bank Index = 0;
+                    Entry Name = bomb_explo_1a;
+                    Entry Index = 9;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+            }
+        }
+
+        Track
+        {
+            Volume = 0;
+
+            Play Wave Event
+            {
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaer Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Pitch Variation
+                {
+                    Min = -300;
+                    Max = 0;
+                    Operator = 0;
+                    New Variation On Loop = 1;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = Wave Bank;
+                    Bank Index = 0;
+                    Entry Name = barrier_collide;
+                    Entry Index = 2;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+            }
+        }
+    }
+
+    Sound
+    {
+        Name = explodeBarrier1;
+        Volume = -600;
+        Pitch = 0;
+        Priority = 0;
+
+        Category Entry
+        {
+            Name = Default;
+        }
+
+        Track
+        {
+            Volume = 0;
+
+            Play Wave Event
+            {
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaer Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Pitch Variation
+                {
+                    Min = -200;
+                    Max = 200;
+                    Operator = 0;
+                    New Variation On Loop = 1;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = Wave Bank;
+                    Bank Index = 0;
+                    Entry Name = bomb_explo_1b;
+                    Entry Index = 10;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+            }
+        }
+
+        Track
+        {
+            Volume = 0;
+
+            Play Wave Event
+            {
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaer Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Volume Variation
+                {
+                    Min = -600;
+                    Max = 200;
+                    Volume = 0;
+                    New Variation On Loop = 1;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = Wave Bank;
+                    Bank Index = 0;
+                    Entry Name = barrier_collide3;
+                    Entry Index = 8;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+            }
+        }
+
+        Track
+        {
+            Volume = 0;
+
+            Play Wave Event
+            {
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaer Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Pitch Variation
+                {
+                    Min = -800;
+                    Max = -600;
+                    Operator = 0;
+                    New Variation On Loop = 1;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = Wave Bank;
+                    Bank Index = 0;
+                    Entry Name = bomb_explo_1b;
+                    Entry Index = 10;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+            }
+        }
+    }
+
+    Sound
+    {
+        Name = shellWhistle;
+        Volume = -1200;
+        Pitch = 0;
+        Priority = 0;
+
+        Category Entry
+        {
+            Name = Default;
+        }
+
+        RPC Entry
+        {
+            RPC Name = TankShellWhistleFade;
+        }
+
+        Track
+        {
+            Volume = 0;
+
+            Play Wave Event
+            {
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaer Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Pitch Variation
+                {
+                    Min = -200;
+                    Max = 100;
+                    Operator = 0;
+                    New Variation On Loop = 1;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = Wave Bank;
+                    Bank Index = 0;
+                    Entry Name = bomb_whistle;
+                    Entry Index = 11;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+            }
+
+            RPC Curve Entry
+            {
+                RPC Name = TankShellWhistleFade;
+                RPC Curve Name = 1::c21c98e8-f324-4a00-a129-b6c643ce5fce;
+            }
+        }
+    }
+
+    Sound
+    {
+        Name = bomb_whistle;
+        Volume = -1200;
+        Pitch = 0;
+        Priority = 0;
+
+        Category Entry
+        {
+            Name = Default;
+        }
+
+        Track
+        {
+            Volume = 0;
+
+            Play Wave Event
+            {
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaer Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = Wave Bank;
+                    Bank Index = 0;
+                    Entry Name = bomb_whistle;
+                    Entry Index = 11;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+            }
+        }
+    }
+
+    Sound
+    {
+        Name = volumeChange;
+        Volume = -1200;
+        Pitch = 0;
+        Priority = 0;
+
+        Category Entry
+        {
+            Name = Default;
+        }
+
+        Track
+        {
+            Volume = 0;
+
+            Play Wave Event
+            {
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaer Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = Wave Bank;
+                    Bank Index = 0;
+                    Entry Name = barrier_collide;
+                    Entry Index = 2;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+            }
+        }
+    }
+
+    Sound
+    {
+        Name = TankTune_1;
+        Volume = -800;
+        Pitch = 0;
+        Priority = 0;
+
+        Category Entry
+        {
+            Name = Default;
+        }
+
+        RPC Entry
+        {
+            RPC Name = MusicFadeOut;
+        }
+
+        Track
+        {
+            Volume = 0;
+
+            Play Wave Event
+            {
+                Loop Count = 255;
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaer Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = Wave Bank;
+                    Bank Index = 0;
+                    Entry Name = TankTune_1;
+                    Entry Index = 12;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+            }
+
+            RPC Curve Entry
+            {
+                RPC Name = MusicFadeOut;
+                RPC Curve Name = 1::e16af437-8b4d-410c-8b9c-439eb6c78bdd;
+            }
+
+            RPC Curve Entry
+            {
+                RPC Name = MusicFadeOut;
+                RPC Curve Name = 1::237a9cab-9622-4c98-92cb-2b3e89d3556f;
+            }
+        }
+    }
+
+    Cue
+    {
+        Name = explodeTank;
+
+        Variation
+        {
+            Variation Type = 3;
+            Variation Table Type = 1;
+            New Variation on Loop = 0;
+        }
+
+        Sound Entry
+        {
+            Name = explodeTank1;
+            Index = 6;
+            Weight Min = 0;
+            Weight Max = 255;
+        }
+    }
+
+    Cue
+    {
+        Name = explodeBarrier;
+
+        Variation
+        {
+            Variation Type = 3;
+            Variation Table Type = 1;
+            New Variation on Loop = 0;
+        }
+
+        Sound Entry
+        {
+            Name = explodeBarrier1;
+            Index = 7;
+            Weight Min = 0;
+            Weight Max = 255;
+        }
+    }
+
+    Cue
+    {
+        Name = fireShell;
+
+        Variation
+        {
+            Variation Type = 3;
+            Variation Table Type = 1;
+            New Variation on Loop = 0;
+        }
+
+        Sound Entry
+        {
+            Name = tank_fire;
+            Index = 0;
+            Weight Min = 0;
+            Weight Max = 255;
+        }
+    }
+
+    Cue
+    {
+        Name = softCollision;
+
+        Variation
+        {
+            Variation Type = 3;
+            Variation Table Type = 1;
+            New Variation on Loop = 0;
+        }
+
+        Sound Entry
+        {
+            Name = barrier_collide2;
+            Index = 2;
+            Weight Min = 0;
+            Weight Max = 255;
+        }
+    }
+
+    Cue
+    {
+        Name = hardCollision;
+
+        Variation
+        {
+            Variation Type = 3;
+            Variation Table Type = 1;
+            New Variation on Loop = 0;
+        }
+
+        Sound Entry
+        {
+            Name = barrier_collide;
+            Index = 1;
+            Weight Min = 0;
+            Weight Max = 255;
+        }
+    }
+
+    Cue
+    {
+        Name = tankEngine;
+
+        Variation
+        {
+            Variation Type = 3;
+            Variation Table Type = 1;
+            New Variation on Loop = 0;
+        }
+
+        Sound Entry
+        {
+            Name = tankEngine;
+            Index = 3;
+            Weight Min = 0;
+            Weight Max = 255;
+        }
+    }
+
+    Cue
+    {
+        Name = music;
+
+        Variation
+        {
+            Variation Type = 3;
+            Variation Table Type = 1;
+            New Variation on Loop = 0;
+        }
+
+        Sound Entry
+        {
+            Name = TankTune_1;
+            Index = 11;
+            Weight Min = 0;
+            Weight Max = 255;
+        }
+    }
+
+    Cue
+    {
+        Name = mouseOver;
+
+        Variation
+        {
+            Variation Type = 3;
+            Variation Table Type = 1;
+            New Variation on Loop = 0;
+        }
+
+        Sound Entry
+        {
+            Name = mouseOver;
+            Index = 4;
+            Weight Min = 0;
+            Weight Max = 255;
+        }
+    }
+
+    Cue
+    {
+        Name = mouseDown;
+
+        Variation
+        {
+            Variation Type = 3;
+            Variation Table Type = 1;
+            New Variation on Loop = 0;
+        }
+
+        Sound Entry
+        {
+            Name = mouseDown;
+            Index = 5;
+            Weight Min = 0;
+            Weight Max = 255;
+        }
+    }
+
+    Cue
+    {
+        Name = shellWhistle;
+
+        Variation
+        {
+            Variation Type = 3;
+            Variation Table Type = 1;
+            New Variation on Loop = 0;
+        }
+
+        Sound Entry
+        {
+            Name = shellWhistle;
+            Index = 8;
+            Weight Min = 0;
+            Weight Max = 255;
+        }
+    }
+
+    Cue
+    {
+        Name = volumeChange;
+
+        Variation
+        {
+            Variation Type = 3;
+            Variation Table Type = 1;
+            New Variation on Loop = 0;
+        }
+
+        Sound Entry
+        {
+            Name = volumeChange;
+            Index = 10;
+            Weight Min = 0;
+            Weight Max = 255;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+C:\Users\Jay\Desktop\377\Assignment5Files\RavenX\MapContent\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Jay\Desktop\377\Assignment5Files\RavenX\MapContent\bin\Debug\MapContent.dll
+C:\Users\Jay\Desktop\377\Assignment5Files\RavenX\MapContent\bin\Debug\MapContent.pdb
+C:\Users\Jay\Desktop\377\Assignment5Files\RavenX\MapContent\bin\Debug\Microsoft.Xna.Framework.Content.Pipeline.dll
+C:\Users\Jay\Desktop\377\Assignment5Files\RavenX\MapContent\bin\Debug\Microsoft.Xna.Framework.dll
+C:\Users\Jay\Desktop\377\Assignment5Files\RavenX\MapContent\bin\Debug\Mindcrafters.Library.Utility.dll
+C:\Users\Jay\Desktop\377\Assignment5Files\RavenX\MapContent\bin\Debug\Mindcrafters.TorqueX.Framework.dll
+C:\Users\Jay\Desktop\377\Assignment5Files\RavenX\MapContent\bin\Debug\Microsoft.Xna.Framework.Content.Pipeline.xml
+C:\Users\Jay\Desktop\377\Assignment5Files\RavenX\MapContent\bin\Debug\Mindcrafters.Library.Utility.pdb
+C:\Users\Jay\Desktop\377\Assignment5Files\RavenX\MapContent\bin\Debug\Microsoft.Xna.Framework.xml
+C:\Users\Jay\Desktop\377\Assignment5Files\RavenX\MapContent\obj\Debug\MapContent.dll
+C:\Users\Jay\Desktop\377\Assignment5Files\RavenX\MapContent\obj\Debug\MapContent.pdb

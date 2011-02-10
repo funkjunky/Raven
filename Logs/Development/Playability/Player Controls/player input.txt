@@ -1,0 +1,6 @@
+press space to see what each bot is thinking...
+-ct
+--------------------------------------------
+press x when a bot is selected to kill it
+-ct
+--------------------------------------------
